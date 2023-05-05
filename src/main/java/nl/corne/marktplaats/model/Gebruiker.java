@@ -14,8 +14,11 @@ public class Gebruiker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String gebruikersNaam;
+    private String email;
     private String wachtwoord;
+    private String voornaam;
+    private String achternaam;
+    private String favorieteProgrammeertaal;
     private boolean isIngelogd = false;
     private Rol rol = Rol.HANDELAAR;
     private boolean afhalen = false;
@@ -23,9 +26,12 @@ public class Gebruiker {
     private boolean depot = false;
 
 
-    public Gebruiker(String gebruikersNaam, String wachtwoord) {
-        this.gebruikersNaam = gebruikersNaam;
+    public Gebruiker(String email, String wachtwoord, String voornaam, String achternaam, String favorieteProgrammeertaal) {
+        this.email = email;
         this.wachtwoord = wachtwoord;
+        this.voornaam = voornaam;
+        this.achternaam = achternaam;
+        this.favorieteProgrammeertaal = favorieteProgrammeertaal;
     }
 
 

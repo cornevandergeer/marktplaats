@@ -24,6 +24,9 @@ public class ConsoleController {
                 case "2":
                     gebruikerController.registreerGebruiker();
                     break;
+                case "8":
+                    System.out.println("Bedankt en tot ziens!");
+                    return;
             }
         }
     }

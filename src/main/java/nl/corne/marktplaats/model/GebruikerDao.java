@@ -2,6 +2,7 @@ package nl.corne.marktplaats.model;
 
 import jakarta.persistence.*;
 
+
 public class GebruikerDao {
 
     private EntityManagerFactory mySQL = Persistence.createEntityManagerFactory("MySQL");
@@ -14,18 +15,25 @@ public class GebruikerDao {
         transaction.commit();
     }
 
-    public void inlogGebruiker(String gebruikersnaam, String wachtwoord) {
+    public Gebruiker inlogGebruiker(String email, String wachtwoord) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        Gebruiker gebruiker = em.createQuery(
-                "select g from Gebruiker g " +
-                "where gebruikersNaam='" + gebruikersnaam +"'" +
-                "and wachtwoord='" + wachtwoord +"'",
-                Gebruiker.class).getSingleResult();
-        gebruiker.setIngelogd(true);
-        System.out.println("logged in:");
-        System.out.println(gebruiker);
-        transaction.commit();
+        String query = "select g from Gebruiker g where email = :e and wachtwoord = :ww";
+        try {
+            Gebruiker gebruiker = em.createQuery(query, Gebruiker.class).
+                    setParameter("e", email).
+                    setParameter("ww", wachtwoord).
+                    getSingleResult();
+            gebruiker.setIngelogd(true);
+            transaction.commit();
+            return gebruiker;
+        } catch (NoResultException e){
+            transaction.rollback();
+            return null;
+        }
     }
+
+    // TO DO: log gebruiker uit
+
 
 }

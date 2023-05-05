@@ -25,15 +25,18 @@ public class HoofdMenuView {
                 "\n| X. advertenties bekijken    |" +
                 "\n| X. advertentie plaatsen     |" +
                 "\n| X. voorwaarden bekijken     |" +
+                "\n| 8. afsluiten                |" +
                 "\n-------------------------------");
     }
 
     public void vraagNummerUitKeuzemenu() {
         System.out.println("Typ het nummer uit het keuzemenu in:");
         setAntwoord();
-        if (!(this.getAntwoord().equals("1") || this.getAntwoord().equals("2"))) {
+        if (
+                !(this.getAntwoord().equals("1")
+                || this.getAntwoord().equals("2")
+                || this.getAntwoord().equals("8"))) {
             System.out.println("Ik snap niet wat je bedoeld...");
-            laatKeuzeMenuZien();
             vraagNummerUitKeuzemenu();
         }
     }
