@@ -1,8 +1,8 @@
-package nl.corne.marktplaats.view;
+package nl.corne.marktplaats.controller;
 
-import nl.corne.marktplaats.controller.GebruikerController;
+import nl.corne.marktplaats.view.HoofdMenuView;
 
-public class ConsoleUI {
+public class ConsoleController {
 
     HoofdMenuView hoofdMenuView = new HoofdMenuView();
     GebruikerController gebruikerController = new GebruikerController();
@@ -18,7 +18,7 @@ public class ConsoleUI {
             switch (hoofdMenuView.getAntwoord()) {
                 // inloggen
                 case "1":
-//                    gebruikerController.inlogGebruiker();
+                    System.out.println("binnenkort beschikbaar");
                     break;
                 // registreren
                 case "2":

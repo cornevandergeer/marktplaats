@@ -1,13 +1,13 @@
 package nl.corne.marktplaats;
 
-import nl.corne.marktplaats.view.ConsoleUI;
+import nl.corne.marktplaats.controller.ConsoleController;
 
 public class App {
 
     public static void main(String[] args) {
 
-        ConsoleUI consoleUI = new ConsoleUI();
-        consoleUI.runConsole();
+        ConsoleController consoleController = new ConsoleController();
+        consoleController.runConsole();
 
     }
 }

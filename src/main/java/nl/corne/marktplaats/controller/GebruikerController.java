@@ -15,12 +15,4 @@ public class GebruikerController {
         System.out.println("Hallo " + gebruikersNaam + "," +
                 "\njouw account is succesvol aangemaakt");
     }
-
-    public GebruikerDao getGebruikerDao() {
-        return gebruikerDao;
-    }
-
-    public GebruikerView getGebruikerView() {
-        return gebruikerView;
-    }
 }

@@ -31,17 +31,18 @@ public class HoofdMenuView {
     public void vraagNummerUitKeuzemenu() {
         System.out.println("Typ het nummer uit het keuzemenu in:");
         setAntwoord();
-        if (!(getAntwoord().equals("1") || getAntwoord().equals("2"))) {
+        if (!(this.getAntwoord().equals("1") || this.getAntwoord().equals("2"))) {
             System.out.println("Ik snap niet wat je bedoeld...");
             laatKeuzeMenuZien();
             vraagNummerUitKeuzemenu();
         }
     }
 
+    private void setAntwoord() {
+        this.antwoord = scan.nextLine();
+    }
+
     public String getAntwoord() {
         return antwoord;
-    }
-    public void setAntwoord() {
-        this.antwoord = scan.nextLine();
     }
 }
