@@ -15,4 +15,10 @@ public class GebruikerController {
         System.out.println("Hallo " + gebruikersNaam + "," +
                 "\njouw account is succesvol aangemaakt");
     }
+
+    public void inlogGebruiker() {
+        String gebruikersNaam = gebruikerView.vraagGebruikersNaam();
+        String wachtwoord = gebruikerView.vraagWachtwoord();
+        gebruikerDao.inlogGebruiker(gebruikersNaam, wachtwoord);
+    }
 }

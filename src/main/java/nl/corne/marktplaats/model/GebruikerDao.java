@@ -1,9 +1,6 @@
 package nl.corne.marktplaats.model;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
+import jakarta.persistence.*;
 
 public class GebruikerDao {
 
@@ -17,12 +14,17 @@ public class GebruikerDao {
         transaction.commit();
     }
 
-    public void setGebruikerToAdmin(long id) {
+    public void inlogGebruiker(String gebruikersnaam, String wachtwoord) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        Gebruiker gebruiker = em.createQuery("select g from Gebruiker g where id=" + id, Gebruiker.class).getSingleResult();
+        Gebruiker gebruiker = em.createQuery(
+                "select g from Gebruiker g " +
+                "where gebruikersNaam='" + gebruikersnaam +"'" +
+                "and wachtwoord='" + wachtwoord +"'",
+                Gebruiker.class).getSingleResult();
+        gebruiker.setIngelogd(true);
+        System.out.println("logged in:");
         System.out.println(gebruiker);
-//        gebruiker.setRol(Rol.BEHEERDER);
         transaction.commit();
     }
 

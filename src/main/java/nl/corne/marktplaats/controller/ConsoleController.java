@@ -18,7 +18,7 @@ public class ConsoleController {
             switch (hoofdMenuView.getAntwoord()) {
                 // inloggen
                 case "1":
-                    System.out.println("binnenkort beschikbaar");
+                    gebruikerController.inlogGebruiker();
                     break;
                 // registreren
                 case "2":
