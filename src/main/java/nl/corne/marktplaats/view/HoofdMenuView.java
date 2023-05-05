@@ -1,8 +1,8 @@
-package nl.corne.marktplaats;
+package nl.corne.marktplaats.view;
 
 import java.util.Scanner;
 
-public class ConsoleUI {
+public class HoofdMenuView {
     static Scanner scan = new Scanner(System.in);
     private String antwoord;
 
@@ -37,6 +37,7 @@ public class ConsoleUI {
             vraagNummerUitKeuzemenu();
         }
     }
+
     public String getAntwoord() {
         return antwoord;
     }
