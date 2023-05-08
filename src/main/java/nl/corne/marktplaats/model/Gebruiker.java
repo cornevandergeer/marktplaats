@@ -1,10 +1,11 @@
 package nl.corne.marktplaats.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 @NoArgsConstructor @AllArgsConstructor @Data @Builder
 @Entity
@@ -20,10 +21,12 @@ public class Gebruiker {
     private String achternaam;
     private String favorieteProgrammeertaal;
     private boolean isIngelogd = false;
+    @Enumerated(EnumType.STRING) @Builder.Default
     private Rol rol = Rol.HANDELAAR;
-    private boolean afhalen = false;
-    private boolean bezorgen = false;
-    private boolean depot = false;
+
+    @ManyToOne
+    private Bezorgwijze bezorgwijzes;
+
 
 
     public Gebruiker(String email, String wachtwoord, String voornaam, String achternaam, String favorieteProgrammeertaal) {
@@ -34,5 +37,14 @@ public class Gebruiker {
         this.favorieteProgrammeertaal = favorieteProgrammeertaal;
     }
 
+    public Gebruiker(String voornaam) {
+        this.voornaam = voornaam;
+    }
+
+
+    public void setBezorgwijzes(Bezorgwijze bezorgwijzes) {
+        this.bezorgwijzes = bezorgwijzes;
+        bezorgwijzes.getGebruikers().add(this);
+    }
 
 }

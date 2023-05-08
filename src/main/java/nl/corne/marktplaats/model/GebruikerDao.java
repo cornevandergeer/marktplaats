@@ -8,7 +8,19 @@ public class GebruikerDao {
     private EntityManagerFactory mySQL = Persistence.createEntityManagerFactory("MySQL");
     private EntityManager em = mySQL.createEntityManager();
 
-    public void insert(Gebruiker gebruiker) {
+
+    public Gebruiker selectGebruiker(String voornaam) {
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        String query = "select g from Gebruiker g where voornaam = :n";
+        Gebruiker gebruiker = em.createQuery(query, Gebruiker.class).
+                setParameter("n", voornaam).
+                getSingleResult();
+        transaction.commit();
+        return gebruiker;
+    }
+
+    public void create(Gebruiker gebruiker) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         em.persist(gebruiker);
