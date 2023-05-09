@@ -1,44 +1,44 @@
-package nl.corne.marktplaats.model;
+package nl.corne.marktplaats.model.gebruiker;
 
 import jakarta.persistence.*;
 
 
-public class GebruikerDao {
+public class GebruikerDaoOud {
 
     private EntityManagerFactory mySQL = Persistence.createEntityManagerFactory("MySQL");
     private EntityManager em = mySQL.createEntityManager();
 
 
-    public Gebruiker selectGebruiker(String voornaam) {
+    public GebruikerOud selectGebruiker(String voornaam) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        String query = "select g from Gebruiker g where voornaam = :n";
-        Gebruiker gebruiker = em.createQuery(query, Gebruiker.class).
+        String query = "select g from GebruikerOud g where voornaam = :n";
+        GebruikerOud gebruikerOud = em.createQuery(query, GebruikerOud.class).
                 setParameter("n", voornaam).
                 getSingleResult();
         transaction.commit();
-        return gebruiker;
+        return gebruikerOud;
     }
 
-    public void create(Gebruiker gebruiker) {
+    public void create(GebruikerOud gebruikerOud) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        em.persist(gebruiker);
+        em.persist(gebruikerOud);
         transaction.commit();
     }
 
-    public Gebruiker inlogGebruiker(String email, String wachtwoord) {
+    public GebruikerOud inlogGebruiker(String email, String wachtwoord) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        String query = "select g from Gebruiker g where email = :e and wachtwoord = :ww";
+        String query = "select g from GebruikerOud g where email = :e and wachtwoord = :ww";
         try {
-            Gebruiker gebruiker = em.createQuery(query, Gebruiker.class).
+            GebruikerOud gebruikerOud = em.createQuery(query, GebruikerOud.class).
                     setParameter("e", email).
                     setParameter("ww", wachtwoord).
                     getSingleResult();
-            gebruiker.setIngelogd(true);
+            gebruikerOud.setIngelogd(true);
             transaction.commit();
-            return gebruiker;
+            return gebruikerOud;
         } catch (NoResultException e){
             transaction.rollback();
             return null;

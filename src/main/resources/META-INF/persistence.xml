@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
@@ -7,11 +7,13 @@
     <persistence-unit name="MySQL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/marktplaats"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/case_marktplaats"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
-            <property name="jakarta.persistence.jdbc.password" value="rootroot"/>
+            <property name="jakarta.persistence.jdbc.password" value="AdminAdmin!"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
+<!--            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>-->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
         </properties>
     </persistence-unit>
+
 </persistence>

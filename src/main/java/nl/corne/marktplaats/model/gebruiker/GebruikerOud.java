@@ -1,16 +1,13 @@
-package nl.corne.marktplaats.model;
+package nl.corne.marktplaats.model.gebruiker;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @NoArgsConstructor @AllArgsConstructor @Data @Builder
 @Entity
 @Table(name = "Gebruikers")
-public class Gebruiker {
+public class GebruikerOud {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -22,14 +19,14 @@ public class Gebruiker {
     private String favorieteProgrammeertaal;
     private boolean isIngelogd = false;
     @Enumerated(EnumType.STRING) @Builder.Default
-    private Rol rol = Rol.HANDELAAR;
+    private RolOud rolOud = RolOud.HANDELAAR;
 
     @ManyToOne
     private Bezorgwijze bezorgwijzes;
 
 
 
-    public Gebruiker(String email, String wachtwoord, String voornaam, String achternaam, String favorieteProgrammeertaal) {
+    public GebruikerOud(String email, String wachtwoord, String voornaam, String achternaam, String favorieteProgrammeertaal) {
         this.email = email;
         this.wachtwoord = wachtwoord;
         this.voornaam = voornaam;
@@ -37,7 +34,7 @@ public class Gebruiker {
         this.favorieteProgrammeertaal = favorieteProgrammeertaal;
     }
 
-    public Gebruiker(String voornaam) {
+    public GebruikerOud(String voornaam) {
         this.voornaam = voornaam;
     }
 
