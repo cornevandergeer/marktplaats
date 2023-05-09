@@ -2,7 +2,7 @@ package nl.corne.marktplaats.model;
 
 import java.util.List;
 
-public interface DAO<T> {
+public interface DAOInterface<T> {
 
     T get(int id);
 

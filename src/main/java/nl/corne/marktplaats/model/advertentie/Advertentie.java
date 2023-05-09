@@ -1,7 +1,7 @@
 package nl.corne.marktplaats.model.advertentie;
 
-import belastingdienst.marktplaats.exceptions.AuthorizationLevelTooLow;
-import belastingdienst.marktplaats.exceptions.BezorgwijzeNotChosenByGebruiker;
+import nl.corne.marktplaats.model.exceptions.AuthorizationLevelTooLow;
+import nl.corne.marktplaats.model.exceptions.BezorgwijzeNotChosenByGebruiker;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
