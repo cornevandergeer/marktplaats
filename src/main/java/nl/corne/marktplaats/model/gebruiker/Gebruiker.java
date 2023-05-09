@@ -7,8 +7,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import nl.corne.marktplaats.model.advertentie.Advertentie;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Slf4j
@@ -34,7 +37,8 @@ public class Gebruiker {
     private String favorieteProgrammeertaal;
     @ElementCollection @Builder.Default @CollectionTable(name = "Gebruiker Bezorgwijzes") @Enumerated(EnumType.STRING) //@OneToMany(cascade = CascadeType.PERSIST) @ToString.Exclude
     private Set<Bezorgwijze> bezorgwijzes = new HashSet<>();
-//    private List<Advertentie> myFavorieteAdvertenties = new ArrayList<>();
+    @OneToMany @Builder.Default @CollectionTable(name = "Gebruiker Favoriete Advertenties")
+    private Set<Advertentie> myFavorieteAdvertenties = new HashSet<>();
     private boolean isIngelogd = false;
 
 }
