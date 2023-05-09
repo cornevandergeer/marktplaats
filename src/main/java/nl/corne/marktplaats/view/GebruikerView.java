@@ -35,10 +35,4 @@ public class GebruikerView {
         return favorieteProgrammeertaal;
     }
 
-    /*---------------------------------
-     TO DO
-     - vraag verzendoptie afhalen
-     - vraag verzendoptie versturen
-     - vraag verzendoptie depot
-     ------------------------------*/
 }

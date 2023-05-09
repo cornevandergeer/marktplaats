@@ -15,9 +15,15 @@ public class GebruikerController {
         String voornaam = gebruikerView.vraagVoornaam();
         String achternaam = gebruikerView.vraagAchternaam();
         String favorieteProgrammeertaal = gebruikerView.vraagFavorieteProgrammeertaal();
-        Bezorgwijze bezorgwijze = new Bezorgwijze();
         Gebruiker gebruiker = new Gebruiker(email, wachtwoord, voornaam, achternaam, favorieteProgrammeertaal);
         gebruikerDao.create(gebruiker);
+        setBezorgwijzes(gebruiker);
+        System.out.println("Hallo " + voornaam + " " + achternaam + "," +
+                "\njouw account is succesvol aangemaakt");
+    }
+
+    public void setBezorgwijzes(Gebruiker gebruiker) {
+        Bezorgwijze bezorgwijze = new Bezorgwijze();
         boolean bezorgen = bezorgwijzeView.vraagBezorgen();
         boolean afhalen = bezorgwijzeView.vraagAfhalen();
         boolean depot = bezorgwijzeView.vraagDepot();
@@ -27,9 +33,6 @@ public class GebruikerController {
         bezorgwijzeDao.create(bezorgwijze);
         gebruiker.setBezorgwijzes(bezorgwijze);
         bezorgwijzeDao.update(bezorgwijze);
-
-        System.out.println("Hallo " + voornaam + " " + achternaam + "," +
-                "\njouw account is succesvol aangemaakt");
     }
 
     public void inlogGebruiker() {
@@ -43,8 +46,4 @@ public class GebruikerController {
             System.out.println("Welkom " + gebruiker.getVoornaam() + " Je bent nu ingelogd!");
     }
 
-
-    public static void main(String[] args) {
-
-    }
 }
