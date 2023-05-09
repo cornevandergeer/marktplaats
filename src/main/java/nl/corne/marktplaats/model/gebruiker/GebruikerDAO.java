@@ -4,6 +4,7 @@ import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -52,6 +53,24 @@ public class GebruikerDAO implements GebruikerDAOInterface {
     @Override
     public int delete(Gebruiker gebruiker){
         return 0;
+    }
+
+    public Gebruiker inlogGebruiker(String username, String wachtwoord) {
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        String query = "select g from Gebruiker g where username = :u and wachtwoord = :ww";
+        try {
+            Gebruiker gebruiker = em.createQuery(query, Gebruiker.class).
+                    setParameter("u", username).
+                    setParameter("ww", wachtwoord).
+                    getSingleResult();
+            gebruiker.setIngelogd(true);
+            transaction.commit();
+            return gebruiker;
+        } catch (NoResultException e){
+            transaction.rollback();
+            return null;
+        }
     }
 
     public void close(){
