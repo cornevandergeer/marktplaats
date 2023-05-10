@@ -35,6 +35,9 @@ public class ConsoleController {
                     case "2": // registreren
                         gebruikerController.registreerGebruiker();
                         break;
+                    case "3": // afsluiten
+                        System.out.println("bedankt en tot ziens!");
+                        return;
                 }
 
             } else {
@@ -48,10 +51,10 @@ public class ConsoleController {
                     case "2": // gebruikersinfo aanpassen
                         gebruikerController.pasGebruikerInfoAan(gebruiker);
                         break;
-                    case "6": // afsluiten en uitloggen
-                        System.out.println("Bedankt en tot ziens!");
+                    case "6": // uitloggen
+                        System.out.println("je bent nu uitgelogd...");
                         gebruikerController.uitlogGebruiker(gebruiker);
-                        return;
+                        gebruiker = null;
                 }
 
             }

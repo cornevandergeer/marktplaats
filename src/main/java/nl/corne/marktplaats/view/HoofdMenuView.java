@@ -22,6 +22,7 @@ public class HoofdMenuView {
                 "\n-------------------------------" +
                 "\n| 1. inloggen                 |" +
                 "\n| 2. registreren              |" +
+                "\n| 3. afsluiten                |" +
                 "\n-------------------------------");
     }
 
@@ -35,7 +36,7 @@ public class HoofdMenuView {
                 "\n| X. advertenties bekijken    |" +
                 "\n| X. advertentie plaatsen     |" +
                 "\n| X. voorwaarden bekijken     |" +
-                "\n| 6. afsluiten                |" +
+                "\n| 6. uitloggen                |" +
                 "\n-------------------------------");
     }/*public*/
 
@@ -44,7 +45,8 @@ public class HoofdMenuView {
         setAntwoord();
         if (
                 !(this.getAntwoord().equals("1")
-                        || this.getAntwoord().equals("2"))) {
+                        || this.getAntwoord().equals("2")
+                        || this.getAntwoord().equals("3"))) {
             System.out.println("Ik snap niet wat je bedoeld...");
             vraagNummerUitKeuzemenu();
         }

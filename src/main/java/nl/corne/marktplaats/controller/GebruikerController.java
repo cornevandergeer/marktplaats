@@ -71,22 +71,27 @@ public class GebruikerController {
             case "1": // wachtwoord
                 String wachtwoord = gebruikerInputView.vraagWachtwoord();
                 tempGebruiker.setWachtwoord(wachtwoord);
+                pasGebruikerInfoAan(tempGebruiker);
                 break;
             case "2": // voornaam
                 String voornaam = gebruikerInputView.vraagVoornaam();
                 tempGebruiker.setVoornaam(voornaam);
+                pasGebruikerInfoAan(tempGebruiker);
                 break;
             case "3": // achternaam
                 String achternaam = gebruikerInputView.vraagAchternaam();
                 tempGebruiker.setAchternaam(achternaam);
+                pasGebruikerInfoAan(tempGebruiker);
                 break;
             case "4": // favoriete programmeertaal
                 String favorieteProgrammeertaal = gebruikerInputView.vraagFavorieteProgrammeertaal();
                 tempGebruiker.setFavorieteProgrammeertaal(favorieteProgrammeertaal);
+                pasGebruikerInfoAan(tempGebruiker);
                 break;
             case "5": // woonplaats
                 String woonplaats = gebruikerInputView.vraagWoonplaats();
                 tempGebruiker.setWoonplaats(woonplaats);
+                pasGebruikerInfoAan(tempGebruiker);
                 break;
             case "6": // bezorgwijzes aanpassen
                 String versturen = bezorgwijzeView.vraagVersturen();
@@ -96,6 +101,7 @@ public class GebruikerController {
                 bezorgwijzeDAO.addBezorgwijze(afhalen, Bezorgwijze.THUISAFHALEN, tempGebruiker);
                 bezorgwijzeDAO.addBezorgwijze(depot, Bezorgwijze.MAGAZIJNBELASTINGDIENST, tempGebruiker);
                 tempGebruiker.setBezorgwijzes(tempGebruiker.getBezorgwijzes());
+                pasGebruikerInfoAan(tempGebruiker);
                 break;
             case "7": // terug naar hoofdmenu
                 if (gebruikerDao.update(tempGebruiker) != 1) {
