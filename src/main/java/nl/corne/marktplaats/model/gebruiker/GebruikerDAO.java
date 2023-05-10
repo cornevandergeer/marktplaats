@@ -1,7 +1,7 @@
 package nl.corne.marktplaats.model.gebruiker;
 
-import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
+import jakarta.inject.Singleton;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 
 @Slf4j
-@Dependent
+@Singleton
 public class GebruikerDAO implements GebruikerDAOInterface {
 
     // PersistenceContext

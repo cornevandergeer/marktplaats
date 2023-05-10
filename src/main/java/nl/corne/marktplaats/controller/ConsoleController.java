@@ -1,11 +1,16 @@
 package nl.corne.marktplaats.controller;
 
+import jakarta.inject.Inject;
+import jakarta.inject.Singleton;
 import nl.corne.marktplaats.view.HoofdMenuView;
 
+@Singleton
 public class ConsoleController {
 
-    HoofdMenuView hoofdMenuView = new HoofdMenuView();
-    GebruikerController gebruikerController = new GebruikerController();
+    @Inject
+    HoofdMenuView hoofdMenuView;
+    @Inject
+    GebruikerController gebruikerController;
     public void runConsole() {
         while (true) {
             // Home pagina

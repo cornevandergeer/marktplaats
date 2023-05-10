@@ -1,7 +1,11 @@
 package nl.corne.marktplaats.view;
 
+
+import jakarta.inject.Singleton;
+
 import java.util.Scanner;
 
+@Singleton
 public class GebruikerView {
 
     Scanner scan = new Scanner(System.in);
@@ -10,6 +14,12 @@ public class GebruikerView {
         System.out.println("Wat is je email? ");
         String gebruikersNaam = scan.nextLine();
         return gebruikersNaam;
+    }
+
+    public String vraagWoonplaats() {
+        System.out.println("Wat is je woonplaats? ");
+        String woonplaats = scan.nextLine();
+        return woonplaats;
     }
 
     public String vraagWachtwoord() {

@@ -1,7 +1,10 @@
 package nl.corne.marktplaats.view;
 
+import jakarta.inject.Singleton;
+
 import java.util.Scanner;
 
+@Singleton
 public class BezorgwijzeView {
 
     Scanner scan = new Scanner(System.in);
