@@ -94,6 +94,7 @@ public class GebruikerController {
                 pasGebruikerInfoAan(tempGebruiker);
                 break;
             case "6": // bezorgwijzes aanpassen
+                tempGebruiker.getBezorgwijzes().clear();
                 String versturen = bezorgwijzeView.vraagVersturen();
                 String afhalen = bezorgwijzeView.vraagAfhalen();
                 String depot = bezorgwijzeView.vraagDepot();

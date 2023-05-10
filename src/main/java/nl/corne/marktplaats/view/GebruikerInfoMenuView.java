@@ -12,15 +12,15 @@ public class GebruikerInfoMenuView {
     public void laatKeuzeMenuZien() {
         System.out.println("" +
                 "\nWat wil je aanpassen?" +
-                "\n--------------------------------" +
-                "\n| 1. wachtwoord                |" +
-                "\n| 2. voornaam                  |" +
-                "\n| 3. achternaam                |" +
-                "\n| 4. favoriete programmeertaal |" +
-                "\n| 5. woonplaats                |" +
-                "\n| 6. bezorgwijzes aanpassen    |" +
-                "\n| 7. terug naar hoofdmenu      |" +
-                "\n--------------------------------");
+                "\n--------------------------------------" +
+                "\n| 1. wachtwoord                      |" +
+                "\n| 2. voornaam                        |" +
+                "\n| 3. achternaam                      |" +
+                "\n| 4. favoriete programmeertaal       |" +
+                "\n| 5. woonplaats                      |" +
+                "\n| 6. bezorgwijzes aanpassen          |" +
+                "\n| 7. opslaan en terug naar hoofdmenu |" +
+                "\n--------------------------------------");
     }
 
     public void vraagNummerUitKeuzemenu() {
