@@ -24,22 +24,19 @@ public class ConsoleController {
             hoofdMenuView.vraagNummerUitKeuzemenu();
 
             switch (hoofdMenuView.getAntwoord()) {
-                // inloggen
-                case "1":
+                case "1": // inloggen
                     gebruiker = gebruikerController.inlogGebruiker();
                     break;
-                // registreren
-                case "2":
+                case "2": // registreren
                     gebruikerController.registreerGebruiker();
                     break;
-                case "3":
+                case "3": // gebruikersinfo bekijken
                     System.out.println(gebruiker);
                     break;
-                case "4":
-//                    gebruikerController.();
-                    System.out.println("grapje, toch nog niet beschikbaar");
+                case "4": // gebruikersinfo aanpassen
+                    gebruikerController.pasGebruikerInfoAan(gebruiker);
                     break;
-                case "8":
+                case "8": // afsluiten en uitloggen
                     System.out.println("Bedankt en tot ziens!");
                     gebruikerController.uitlogGebruiker(gebruiker);
                     return;
