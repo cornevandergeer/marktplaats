@@ -58,7 +58,11 @@ public class GebruikerDAO implements GebruikerDAOInterface {
     public Gebruiker inlogGebruiker(String username, String wachtwoord) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        String query = "select g from Gebruiker g where username = :u and wachtwoord = :ww";
+        String query = """
+                   select g 
+                   from Gebruiker g 
+                   where username = :u and wachtwoord = :ww
+                   """;
         try {
             Gebruiker gebruiker = em.createQuery(query, Gebruiker.class).
                     setParameter("u", username).
@@ -73,10 +77,35 @@ public class GebruikerDAO implements GebruikerDAOInterface {
         }
     }
 
+    public Gebruiker uitlogGebruiker(String username) {
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        String query = """
+                select g
+                from Gebruiker g
+                where username = :u
+                """;
+        try {
+            Gebruiker gebruiker = em.createQuery(query, Gebruiker.class).
+                    setParameter("u", username).
+                    getSingleResult();
+            gebruiker.setIngelogd(false);
+            transaction.commit();
+            return gebruiker;
+        } catch (NoResultException e){
+            transaction.rollback();
+            return null;
+        }
+    }
+
     public Gebruiker selectGebruikerByNaam(String voornaam) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        String query = "select g from Gebruiker g where voornaam = :n";
+        String query = """
+                    select g
+                    from Gebruiker g
+                    where voornaam = :n
+                    """;
         Gebruiker gebruiker = em.createQuery(query, Gebruiker.class).
                 setParameter("n", voornaam).
                 getSingleResult();
