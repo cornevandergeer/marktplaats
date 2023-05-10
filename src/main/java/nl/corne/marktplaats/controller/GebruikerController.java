@@ -59,4 +59,5 @@ public class GebruikerController {
         gebruikerDao.uitlogGebruiker(gebruiker.getUsername());
     }
 
+
 }

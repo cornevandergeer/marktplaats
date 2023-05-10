@@ -13,7 +13,7 @@ public class HoofdMenuView {
         System.out.println("" +
                 "\n||-----------------------------------------------||" +
                 "\n|| Welkom op Marktplaats voor de Belastingdienst ||" +
-                "\n||-----------------------------------------------||" );
+                "\n||-----------------------------------------------||");
     }
 
     public void laatKeuzeMenuZien() {
@@ -22,23 +22,25 @@ public class HoofdMenuView {
                 "\n-------------------------------" +
                 "\n| 1. inloggen                 |" +
                 "\n| 2. registreren              |" +
+                "\n| 3. gebruikersinfo bekijken  |" +
+                "\n| 4. gebruikersinfo aanpassen |" +
                 "\n   BINNENKORT BESCHIKBAAR:    " +
-                "\n| X. gebruikersinfo bekijken  |" +
-                "\n| X. gebruikersinfo aanpassen |" +
                 "\n| X. advertenties bekijken    |" +
                 "\n| X. advertentie plaatsen     |" +
                 "\n| X. voorwaarden bekijken     |" +
                 "\n| 8. afsluiten                |" +
                 "\n-------------------------------");
-    }
+    }/*public*/
 
     public void vraagNummerUitKeuzemenu() {
         System.out.println("Typ het nummer uit het keuzemenu in:");
         setAntwoord();
         if (
                 !(this.getAntwoord().equals("1")
-                || this.getAntwoord().equals("2")
-                || this.getAntwoord().equals("8"))) {
+                        || this.getAntwoord().equals("2")
+                        || this.getAntwoord().equals("3")
+                        || this.getAntwoord().equals("4")
+                        || this.getAntwoord().equals("8"))) {
             System.out.println("Ik snap niet wat je bedoeld...");
             vraagNummerUitKeuzemenu();
         }

@@ -32,6 +32,13 @@ public class ConsoleController {
                 case "2":
                     gebruikerController.registreerGebruiker();
                     break;
+                case "3":
+                    System.out.println(gebruiker);
+                    break;
+                case "4":
+//                    gebruikerController.();
+                    System.out.println("grapje, toch nog niet beschikbaar");
+                    break;
                 case "8":
                     System.out.println("Bedankt en tot ziens!");
                     gebruikerController.uitlogGebruiker(gebruiker);
