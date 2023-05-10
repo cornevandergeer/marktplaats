@@ -35,19 +35,29 @@ public class GebruikerDAO implements GebruikerDAOInterface {
     @Override
     public void insert(Gebruiker gebruiker) {
         EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
         try {
-            transaction.begin();
             em.persist(gebruiker);
             transaction.commit();
         } catch(Exception e){
-            log.error("Er ging iets mis:", e);
+            log.error("Er ging iets mis: ", e);
             transaction.rollback();
         }
     }
 
     @Override
     public int update(Gebruiker gebruiker){
-        return 0;
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        try {
+            em.merge(gebruiker);
+            transaction.commit();
+            return 1;
+        } catch (Exception e){
+            log.error("Er ging iets mis: ", e);
+            transaction.rollback();
+            return 0;
+        }
     }
 
     @Override
@@ -59,8 +69,8 @@ public class GebruikerDAO implements GebruikerDAOInterface {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         String query = """
-                   select g 
-                   from Gebruiker g 
+                   select g
+                   from Gebruiker g
                    where username = :u and wachtwoord = :ww
                    """;
         try {
