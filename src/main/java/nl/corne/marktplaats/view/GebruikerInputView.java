@@ -6,7 +6,7 @@ import jakarta.inject.Singleton;
 import java.util.Scanner;
 
 @Singleton
-public class GebruikerView {
+public class GebruikerInputView {
 
     Scanner scan = new Scanner(System.in);
 

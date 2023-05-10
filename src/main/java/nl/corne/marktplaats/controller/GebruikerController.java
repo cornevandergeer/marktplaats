@@ -6,7 +6,7 @@ import nl.corne.marktplaats.model.gebruiker.BezorgwijzeDAO;
 import nl.corne.marktplaats.model.gebruiker.Gebruiker;
 import nl.corne.marktplaats.model.gebruiker.GebruikerDAO;
 import nl.corne.marktplaats.view.BezorgwijzeView;
-import nl.corne.marktplaats.view.GebruikerView;
+import nl.corne.marktplaats.view.GebruikerInputView;
 
 @Singleton
 public class GebruikerController {
@@ -16,19 +16,19 @@ public class GebruikerController {
     @Inject
     private BezorgwijzeDAO bezorgwijzeDAO;
     @Inject
-    private GebruikerView gebruikerView;
+    private GebruikerInputView gebruikerInputView;
     @Inject
     private BezorgwijzeView bezorgwijzeView;
 
 
 
     public void registreerGebruiker() {
-        String username = gebruikerView.vraagEmail();
-        String wachtwoord = gebruikerView.vraagWachtwoord();
-        String voornaam = gebruikerView.vraagVoornaam();
-        String achternaam = gebruikerView.vraagAchternaam();
-        String woonplaats = gebruikerView.vraagWoonplaats();
-        String favorieteProgrammeertaal = gebruikerView.vraagFavorieteProgrammeertaal();
+        String username = gebruikerInputView.vraagEmail();
+        String wachtwoord = gebruikerInputView.vraagWachtwoord();
+        String voornaam = gebruikerInputView.vraagVoornaam();
+        String achternaam = gebruikerInputView.vraagAchternaam();
+        String woonplaats = gebruikerInputView.vraagWoonplaats();
+        String favorieteProgrammeertaal = gebruikerInputView.vraagFavorieteProgrammeertaal();
         String versturen = bezorgwijzeView.vraagVersturen();
         String afhalen = bezorgwijzeView.vraagAfhalen();
         String depot = bezorgwijzeView.vraagDepot();
@@ -44,8 +44,8 @@ public class GebruikerController {
     }
 
     public Gebruiker inlogGebruiker() {
-            String email = gebruikerView.vraagEmail();
-            String wachtwoord = gebruikerView.vraagWachtwoord();
+            String email = gebruikerInputView.vraagEmail();
+            String wachtwoord = gebruikerInputView.vraagWachtwoord();
             Gebruiker gebruiker = gebruikerDao.inlogGebruiker(email, wachtwoord);
             if (gebruiker == null) {
                 System.out.println("Gebruiker niet herkend, probeer opnieuw");
