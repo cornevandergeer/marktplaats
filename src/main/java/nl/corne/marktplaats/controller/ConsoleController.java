@@ -2,10 +2,13 @@ package nl.corne.marktplaats.controller;
 
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
+import nl.corne.marktplaats.model.gebruiker.Gebruiker;
 import nl.corne.marktplaats.view.HoofdMenuView;
 
 @Singleton
 public class ConsoleController {
+
+    Gebruiker gebruiker;
 
     @Inject
     HoofdMenuView hoofdMenuView;
@@ -23,7 +26,7 @@ public class ConsoleController {
             switch (hoofdMenuView.getAntwoord()) {
                 // inloggen
                 case "1":
-                    gebruikerController.inlogGebruiker();
+                    gebruiker = gebruikerController.inlogGebruiker();
                     break;
                 // registreren
                 case "2":
@@ -31,6 +34,7 @@ public class ConsoleController {
                     break;
                 case "8":
                     System.out.println("Bedankt en tot ziens!");
+                    gebruikerController.uitlogGebruiker(gebruiker);
                     return;
             }
         }

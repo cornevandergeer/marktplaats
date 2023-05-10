@@ -43,17 +43,20 @@ public class GebruikerController {
                 "\njouw account is succesvol aangemaakt");
     }
 
-
-
-    public void inlogGebruiker() {
+    public Gebruiker inlogGebruiker() {
             String email = gebruikerView.vraagEmail();
             String wachtwoord = gebruikerView.vraagWachtwoord();
             Gebruiker gebruiker = gebruikerDao.inlogGebruiker(email, wachtwoord);
             if (gebruiker == null) {
                 System.out.println("Gebruiker niet herkend, probeer opnieuw");
-                return;
+                return null;
             }
             System.out.println("Welkom " + gebruiker.getVoornaam() + " Je bent nu ingelogd!");
+            return gebruiker;
+    }
+
+    public void uitlogGebruiker(Gebruiker gebruiker) {
+        gebruikerDao.uitlogGebruiker(gebruiker.getUsername());
     }
 
 }
