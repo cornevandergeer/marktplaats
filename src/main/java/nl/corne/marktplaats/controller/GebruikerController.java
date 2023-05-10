@@ -29,22 +29,21 @@ public class GebruikerController {
         String achternaam = gebruikerView.vraagAchternaam();
         String woonplaats = gebruikerView.vraagWoonplaats();
         String favorieteProgrammeertaal = gebruikerView.vraagFavorieteProgrammeertaal();
+        String versturen = bezorgwijzeView.vraagVersturen();
+        String afhalen = bezorgwijzeView.vraagAfhalen();
+        String depot = bezorgwijzeView.vraagDepot();
+
         Gebruiker gebruiker = Gebruiker.builder().username(username).wachtwoord(wachtwoord).voornaam(voornaam).achternaam(achternaam).woonplaats(woonplaats).favorieteProgrammeertaal(favorieteProgrammeertaal).build();
+        bezorgwijzeDAO.addBezorgwijze(versturen, Bezorgwijze.VERSTUREN, gebruiker);
+        bezorgwijzeDAO.addBezorgwijze(afhalen, Bezorgwijze.THUISAFHALEN, gebruiker);
+        bezorgwijzeDAO.addBezorgwijze(depot, Bezorgwijze.MAGAZIJNBELASTINGDIENST, gebruiker);
+        gebruiker.setBezorgwijzes(gebruiker.getBezorgwijzes());
         gebruikerDao.insert(gebruiker);
-        setBezorgwijzes(gebruiker);
         System.out.println("Hallo " + voornaam + " " + achternaam + "," +
                 "\njouw account is succesvol aangemaakt");
     }
 
-    public void setBezorgwijzes(Gebruiker gebruiker) {
-        String versturen = bezorgwijzeView.vraagVersturen();
-        String afhalen = bezorgwijzeView.vraagAfhalen();
-        String depot = bezorgwijzeView.vraagDepot();
-        bezorgwijzeDAO.addBezorgwijze(versturen, Bezorgwijze.VERSTUREN, gebruiker);
-        bezorgwijzeDAO.addBezorgwijze(afhalen, Bezorgwijze.THUISAFHALEN, gebruiker);
-        bezorgwijzeDAO.addBezorgwijze(depot, Bezorgwijze.MAGAZIJNBELASTINGDIENST, gebruiker);
-        bezorgwijzeDAO.insertBezorgwijzes(gebruiker);
-    }
+
 
     public void inlogGebruiker() {
             String email = gebruikerView.vraagEmail();
