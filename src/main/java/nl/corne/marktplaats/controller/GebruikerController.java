@@ -62,43 +62,49 @@ public class GebruikerController {
         gebruikerDao.uitlogGebruiker(gebruiker.getUsername());
     }
 
-    public void pasGebruikerInfoAan(Gebruiker gebruiker) {
+    public Gebruiker pasGebruikerInfoAan(Gebruiker gebruiker) {
         gebruikerInfoMenuView.laatKeuzeMenuZien();
         gebruikerInfoMenuView.vraagNummerUitKeuzemenu();
+        Gebruiker tempGebruiker = gebruiker;
 
         switch (gebruikerInfoMenuView.getAntwoord()) {
             case "1": // wachtwoord
                 String wachtwoord = gebruikerInputView.vraagWachtwoord();
-                gebruiker.setWachtwoord(wachtwoord);
+                tempGebruiker.setWachtwoord(wachtwoord);
                 break;
             case "2": // voornaam
                 String voornaam = gebruikerInputView.vraagVoornaam();
-                gebruiker.setVoornaam(voornaam);
+                tempGebruiker.setVoornaam(voornaam);
                 break;
             case "3": // achternaam
                 String achternaam = gebruikerInputView.vraagAchternaam();
-                gebruiker.setAchternaam(achternaam);
+                tempGebruiker.setAchternaam(achternaam);
                 break;
             case "4": // favoriete programmeertaal
                 String favorieteProgrammeertaal = gebruikerInputView.vraagFavorieteProgrammeertaal();
-                gebruiker.setFavorieteProgrammeertaal(favorieteProgrammeertaal);
+                tempGebruiker.setFavorieteProgrammeertaal(favorieteProgrammeertaal);
                 break;
             case "5": // woonplaats
                 String woonplaats = gebruikerInputView.vraagWoonplaats();
-                gebruiker.setWoonplaats(woonplaats);
+                tempGebruiker.setWoonplaats(woonplaats);
                 break;
             case "6": // bezorgwijzes aanpassen
                 String versturen = bezorgwijzeView.vraagVersturen();
                 String afhalen = bezorgwijzeView.vraagAfhalen();
                 String depot = bezorgwijzeView.vraagDepot();
-                bezorgwijzeDAO.addBezorgwijze(versturen, Bezorgwijze.VERSTUREN, gebruiker);
-                bezorgwijzeDAO.addBezorgwijze(afhalen, Bezorgwijze.THUISAFHALEN, gebruiker);
-                bezorgwijzeDAO.addBezorgwijze(depot, Bezorgwijze.MAGAZIJNBELASTINGDIENST, gebruiker);
-                gebruiker.setBezorgwijzes(gebruiker.getBezorgwijzes());
+                bezorgwijzeDAO.addBezorgwijze(versturen, Bezorgwijze.VERSTUREN, tempGebruiker);
+                bezorgwijzeDAO.addBezorgwijze(afhalen, Bezorgwijze.THUISAFHALEN, tempGebruiker);
+                bezorgwijzeDAO.addBezorgwijze(depot, Bezorgwijze.MAGAZIJNBELASTINGDIENST, tempGebruiker);
+                tempGebruiker.setBezorgwijzes(tempGebruiker.getBezorgwijzes());
                 break;
             case "7": // terug naar hoofdmenu
-                break;
+                if (gebruikerDao.update(tempGebruiker) != 1) {
+                    System.out.println("Gevens zijn niet opgeslagen.");
+                    return gebruiker;
+                }
+                gebruiker = tempGebruiker;
         }
+        return gebruiker;
     }
 
 
