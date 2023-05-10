@@ -3,6 +3,7 @@ package nl.corne.marktplaats.controller;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import nl.corne.marktplaats.model.gebruiker.Gebruiker;
+import nl.corne.marktplaats.view.GebruikerOutputView;
 import nl.corne.marktplaats.view.HoofdMenuView;
 
 @Singleton
@@ -14,6 +15,9 @@ public class ConsoleController {
     HoofdMenuView hoofdMenuView;
     @Inject
     GebruikerController gebruikerController;
+    @Inject
+    GebruikerOutputView gebruikerOutputView;
+
     public void runConsole() {
         while (true) {
             // Home pagina
@@ -33,7 +37,7 @@ public class ConsoleController {
                     gebruikerController.registreerGebruiker();
                     break;
                 case "3":
-                    System.out.println(gebruiker);
+                    gebruikerOutputView.gebruikerGegevens(gebruiker);
                     break;
                 case "4":
 //                    gebruikerController.();

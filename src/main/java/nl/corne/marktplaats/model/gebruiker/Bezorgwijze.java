@@ -19,8 +19,6 @@ public enum Bezorgwijze {
 
         @Override
         public String toString() {
-                return "Bezorgwijze{" +
-                        "description='" + description + '\'' +
-                        '}';
+                return description;
         }
 }
