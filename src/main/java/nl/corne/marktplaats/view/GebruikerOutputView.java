@@ -5,7 +5,7 @@ import nl.corne.marktplaats.model.gebruiker.Gebruiker;
 public class GebruikerOutputView {
 
     public void gebruikerGegevens(Gebruiker gebruiker) {
-        System.out.println("Uw gegevens zijn:");
+        System.out.println("Uw gegevens zijn: ");
         System.out.println("- UserID:      " + gebruiker.getUserID());
         System.out.println("- Username:    " + gebruiker.getUsername());
         System.out.println("- Rol:         " + gebruiker.getRol());
