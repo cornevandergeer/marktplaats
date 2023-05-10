@@ -16,21 +16,39 @@ public class HoofdMenuView {
                 "\n||-----------------------------------------------||");
     }
 
-    public void laatKeuzeMenuZien() {
+    public void laatGastMenuZien() {
         System.out.println("" +
                 "\nWat wil je doen?" +
                 "\n-------------------------------" +
                 "\n| 1. inloggen                 |" +
                 "\n| 2. registreren              |" +
-                "\n| 3. gebruikersinfo bekijken  |" +
-                "\n| 4. gebruikersinfo aanpassen |" +
+                "\n-------------------------------");
+    }
+
+    public void laatKeuzeMenuZien() {
+        System.out.println("" +
+                "\nWat wil je doen?" +
+                "\n-------------------------------" +
+                "\n| 1. gebruikersinfo bekijken  |" +
+                "\n| 2. gebruikersinfo aanpassen |" +
                 "\n   BINNENKORT BESCHIKBAAR:    " +
                 "\n| X. advertenties bekijken    |" +
                 "\n| X. advertentie plaatsen     |" +
                 "\n| X. voorwaarden bekijken     |" +
-                "\n| 8. afsluiten                |" +
+                "\n| 6. afsluiten                |" +
                 "\n-------------------------------");
     }/*public*/
+
+    public void vraagNummerUitGastKeuzeMenu() {
+        System.out.println("Typ het nummer uit het keuzemenu in:");
+        setAntwoord();
+        if (
+                !(this.getAntwoord().equals("1")
+                        || this.getAntwoord().equals("2"))) {
+            System.out.println("Ik snap niet wat je bedoeld...");
+            vraagNummerUitKeuzemenu();
+        }
+    }
 
     public void vraagNummerUitKeuzemenu() {
         System.out.println("Typ het nummer uit het keuzemenu in:");
@@ -38,9 +56,7 @@ public class HoofdMenuView {
         if (
                 !(this.getAntwoord().equals("1")
                         || this.getAntwoord().equals("2")
-                        || this.getAntwoord().equals("3")
-                        || this.getAntwoord().equals("4")
-                        || this.getAntwoord().equals("8"))) {
+                        || this.getAntwoord().equals("6"))) {
             System.out.println("Ik snap niet wat je bedoeld...");
             vraagNummerUitKeuzemenu();
         }

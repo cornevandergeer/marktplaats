@@ -22,29 +22,40 @@ public class ConsoleController {
         while (true) {
             // Home pagina
             hoofdMenuView.laatHomePaginaZien();
-            // Laat menu zien
-            hoofdMenuView.laatKeuzeMenuZien();
-            // Vraag nummer uit keuzemenu
-            hoofdMenuView.vraagNummerUitKeuzemenu();
+            if (gebruiker == null) {
+                // Laat menu zien voor gast
+                hoofdMenuView.laatGastMenuZien();
+                // Vraag nummer uit keuzemenu voor gast
+                hoofdMenuView.vraagNummerUitGastKeuzeMenu();
 
-            switch (hoofdMenuView.getAntwoord()) {
-                case "1": // inloggen
-                    gebruiker = gebruikerController.inlogGebruiker();
-                    break;
-                case "2": // registreren
-                    gebruikerController.registreerGebruiker();
-                    break;
-                case "3": // gebruikersinfo bekijken
-                    gebruikerOutputView.gebruikerGegevens(gebruiker);
-                    break;
-                case "4": // gebruikersinfo aanpassen
-                    gebruikerController.pasGebruikerInfoAan(gebruiker);
-                    break;
-                case "8": // afsluiten en uitloggen
-                    System.out.println("Bedankt en tot ziens!");
-                    gebruikerController.uitlogGebruiker(gebruiker);
-                    return;
+                switch (hoofdMenuView.getAntwoord()) {
+                    case "1": // inloggen
+                        gebruiker = gebruikerController.inlogGebruiker();
+                        break;
+                    case "2": // registreren
+                        gebruikerController.registreerGebruiker();
+                        break;
+                }
+
+            } else {
+                hoofdMenuView.laatKeuzeMenuZien();
+                hoofdMenuView.vraagNummerUitKeuzemenu();
+
+                switch (hoofdMenuView.getAntwoord()) {
+                    case "1": // gebruikersinfo bekijken
+                        gebruikerOutputView.gebruikerGegevens(gebruiker);
+                        break;
+                    case "2": // gebruikersinfo aanpassen
+                        gebruikerController.pasGebruikerInfoAan(gebruiker);
+                        break;
+                    case "6": // afsluiten en uitloggen
+                        System.out.println("Bedankt en tot ziens!");
+                        gebruikerController.uitlogGebruiker(gebruiker);
+                        return;
+                }
+
             }
+
         }
     }
 }
