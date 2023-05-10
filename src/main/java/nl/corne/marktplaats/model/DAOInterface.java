@@ -4,8 +4,6 @@ import java.util.List;
 
 public interface DAOInterface<T> {
 
-    T get(int id);
-
     List<T> getAll();
 
     int save(T t);

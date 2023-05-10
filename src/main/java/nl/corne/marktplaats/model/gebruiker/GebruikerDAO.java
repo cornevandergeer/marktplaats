@@ -18,8 +18,8 @@ public class GebruikerDAO implements GebruikerDAOInterface {
     private EntityManager em;
 
     @Override
-    public Gebruiker get(int id){
-        return em.find(Gebruiker.class, id);
+    public Gebruiker get(String username){
+        return em.find(Gebruiker.class, username);
     }
 
     @Override
