@@ -2,6 +2,7 @@ package nl.corne.marktplaats.controller;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import nl.corne.marktplaats.model.gebruiker.Bezorgwijze;
+import nl.corne.marktplaats.model.gebruiker.BezorgwijzeDAO;
 import nl.corne.marktplaats.model.gebruiker.Gebruiker;
 import nl.corne.marktplaats.model.gebruiker.GebruikerDAO;
 import nl.corne.marktplaats.view.BezorgwijzeView;
@@ -13,9 +14,12 @@ public class GebruikerController {
     @Inject
     private GebruikerDAO gebruikerDao;
     @Inject
+    private BezorgwijzeDAO bezorgwijzeDAO;
+    @Inject
     private GebruikerView gebruikerView;
     @Inject
     private BezorgwijzeView bezorgwijzeView;
+
 
 
     public void registreerGebruiker() {
@@ -33,9 +37,13 @@ public class GebruikerController {
     }
 
     public void setBezorgwijzes(Gebruiker gebruiker) {
-        boolean bezorgen = bezorgwijzeView.vraagBezorgen();
-        boolean afhalen = bezorgwijzeView.vraagAfhalen();
-        boolean depot = bezorgwijzeView.vraagDepot();
+        String versturen = bezorgwijzeView.vraagVersturen();
+        String afhalen = bezorgwijzeView.vraagAfhalen();
+        String depot = bezorgwijzeView.vraagDepot();
+        bezorgwijzeDAO.addBezorgwijze(versturen, Bezorgwijze.VERSTUREN, gebruiker);
+        bezorgwijzeDAO.addBezorgwijze(afhalen, Bezorgwijze.THUISAFHALEN, gebruiker);
+        bezorgwijzeDAO.addBezorgwijze(depot, Bezorgwijze.MAGAZIJNBELASTINGDIENST, gebruiker);
+        bezorgwijzeDAO.insertBezorgwijzes(gebruiker);
     }
 
     public void inlogGebruiker() {

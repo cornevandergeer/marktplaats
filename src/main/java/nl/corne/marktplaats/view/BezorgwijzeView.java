@@ -9,31 +9,31 @@ public class BezorgwijzeView {
 
     Scanner scan = new Scanner(System.in);
 
-    public boolean vraagBezorgen() {
-        System.out.println("Wil je verzendoptie 'Bezorgen' aanzetten? (ja/nee)");
+    public String vraagVersturen() {
+        System.out.println("Wil je verzendoptie 'Versturen' aanzetten? (ja/nee)");
         String antwoord = scan.nextLine();
         if (antwoord.equals("ja")) {
-            return true;
+            return "VERSTUREN";
         } else {
-            return false;
+            return "";
         }
     }
-    public boolean vraagAfhalen() {
+    public String vraagAfhalen() {
         System.out.println("Wil je verzendoptie 'Afhalen' aanzetten? (ja/nee)");
         String antwoord = scan.nextLine();
         if (antwoord.equals("ja")) {
-            return true;
+            return "THUISAFHALEN";
         } else {
-            return false;
+            return "";
         }
     }
-    public boolean vraagDepot() {
+    public String vraagDepot() {
         System.out.println("Wil je verzendoptie 'Depot' aanzetten? (ja/nee)");
         String antwoord = scan.nextLine();
         if (antwoord.equals("ja")) {
-            return true;
+            return "MAGAZIJNBELASTINGDIENST";
         } else {
-            return false;
+            return "";
         }
     }
 
