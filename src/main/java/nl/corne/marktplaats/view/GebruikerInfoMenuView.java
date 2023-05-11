@@ -19,7 +19,7 @@ public class GebruikerInfoMenuView {
                 "\n| 4. favoriete programmeertaal       |" +
                 "\n| 5. woonplaats                      |" +
                 "\n| 6. bezorgwijzes aanpassen          |" +
-                "\n| 7. opslaan en terug naar hoofdmenu |" +
+                "\n| 7. OPSLAAN en terug naar hoofdmenu |" +
                 "\n--------------------------------------");
     }
 

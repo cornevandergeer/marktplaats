@@ -37,6 +37,7 @@ public class Advertentie {
     private String omschrijving;
     @Enumerated(EnumType.STRING)
     private Bezorgwijze bezorgwijze;
+    @Enumerated(EnumType.STRING) @Builder.Default
     private StatusAdvertentie status = StatusAdvertentie.BESCHIKBAAR;
 
     public Advertentie(int advID, Gebruiker mygebruiker, Hoofdcategorie hoofdcategorie, String titel, BigDecimal prijs, Bezorgwijze bezorgwijze, String omschrijving) {

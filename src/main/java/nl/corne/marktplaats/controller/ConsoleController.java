@@ -59,6 +59,9 @@ public class ConsoleController {
                     case "4": // advertentie maken
                         advertentieController.maakAdvertentie(gebruiker);
                         break;
+                    case "5": // voorwaarden bekijken
+                        System.out.println("je mag geen ongepaste diensten en/of producten aanbieden");
+                        break;
                     case "6": // uitloggen
                         System.out.println("je bent nu uitgelogd...");
                         gebruikerController.uitlogGebruiker(gebruiker);

@@ -32,10 +32,9 @@ public class HoofdMenuView {
                 "\n-------------------------------" +
                 "\n| 1. gebruikersinfo bekijken  |" +
                 "\n| 2. gebruikersinfo aanpassen |" +
-                "\n   BINNENKORT BESCHIKBAAR:    " +
                 "\n| 3. advertenties bekijken    |" +
                 "\n| 4. advertentie plaatsen     |" +
-                "\n| X. voorwaarden bekijken     |" +
+                "\n| 5. voorwaarden bekijken     |" +
                 "\n| 6. uitloggen                |" +
                 "\n-------------------------------");
     }/*public*/
@@ -60,6 +59,7 @@ public class HoofdMenuView {
                         || this.getAntwoord().equals("2")
                         || this.getAntwoord().equals("3")
                         || this.getAntwoord().equals("4")
+                        || this.getAntwoord().equals("5")
                         || this.getAntwoord().equals("6"))) {
             System.out.println("Ik snap niet wat je bedoeld...");
             vraagNummerUitKeuzemenu();
