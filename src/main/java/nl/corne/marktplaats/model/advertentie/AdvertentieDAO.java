@@ -14,7 +14,6 @@ public class AdvertentieDAO implements AdvertentieDAOInterface {
 
     @Inject
     private EntityManager em;
-    EntityTransaction transaction = em.getTransaction();
 
     @Override
     public Advertentie get(int id) {
@@ -27,12 +26,8 @@ public class AdvertentieDAO implements AdvertentieDAOInterface {
     }
 
     @Override
-    public int save(Advertentie advertentie) {
-        return 0;
-    }
-
-    @Override
     public void insert(Advertentie advertentie) {
+        EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         try {
             em.persist(advertentie);
@@ -45,6 +40,7 @@ public class AdvertentieDAO implements AdvertentieDAOInterface {
 
     @Override
     public int update(Advertentie advertentie) {
+        EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         try {
             em.merge(advertentie);

@@ -25,7 +25,7 @@ import java.math.BigDecimal;
 public class Advertentie {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int advID;
+    private long advID;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Gebruiker mygebruiker;
     @Enumerated

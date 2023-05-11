@@ -29,11 +29,6 @@ public class GebruikerDAO implements GebruikerDAOInterface {
     }
 
     @Override
-    public int save(Gebruiker gebruiker){
-        return 0;
-    }
-
-    @Override
     public void insert(Gebruiker gebruiker) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
