@@ -7,6 +7,7 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import lombok.extern.slf4j.Slf4j;
 import nl.corne.marktplaats.model.advertentie.Advertentie;
+import nl.corne.marktplaats.model.util.EntityManagerProducer;
 
 import java.util.List;
 
@@ -14,9 +15,7 @@ import java.util.List;
 @Singleton
 public class GebruikerDAO implements GebruikerDAOInterface {
 
-    // PersistenceContext
-    @Inject
-    private EntityManager em;
+    private final EntityManager em = EntityManagerProducer.emf.createEntityManager();
 
     @Override
     public Gebruiker get(String username){

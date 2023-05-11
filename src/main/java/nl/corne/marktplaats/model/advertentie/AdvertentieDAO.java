@@ -5,6 +5,7 @@ import jakarta.inject.Singleton;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import lombok.extern.slf4j.Slf4j;
+import nl.corne.marktplaats.model.util.EntityManagerProducer;
 
 import java.util.List;
 
@@ -12,8 +13,7 @@ import java.util.List;
 @Singleton
 public class AdvertentieDAO implements AdvertentieDAOInterface {
 
-    @Inject
-    private EntityManager em;
+    private final EntityManager em = EntityManagerProducer.emf.createEntityManager();
 
     @Override
     public Advertentie get(int id) {
