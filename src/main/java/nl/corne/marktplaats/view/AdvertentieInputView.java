@@ -57,7 +57,7 @@ public class AdvertentieInputView {
             System.out.println("Kies optie: '" + (i+1) + "' voor " + gebruiker.getBezorgwijzes().toArray()[i].toString());
         }
         String antwoord = scan.nextLine();
-        int a = 0;
+        int a;
         try {
             a = Integer.parseInt(antwoord);
         } catch (NumberFormatException e) {
