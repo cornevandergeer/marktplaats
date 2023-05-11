@@ -33,8 +33,8 @@ public class HoofdMenuView {
                 "\n| 1. gebruikersinfo bekijken  |" +
                 "\n| 2. gebruikersinfo aanpassen |" +
                 "\n   BINNENKORT BESCHIKBAAR:    " +
-                "\n| X. advertenties bekijken    |" +
-                "\n| X. advertentie plaatsen     |" +
+                "\n| 3. advertenties bekijken    |" +
+                "\n| 4. advertentie plaatsen     |" +
                 "\n| X. voorwaarden bekijken     |" +
                 "\n| 6. uitloggen                |" +
                 "\n-------------------------------");
@@ -58,6 +58,8 @@ public class HoofdMenuView {
         if (
                 !(this.getAntwoord().equals("1")
                         || this.getAntwoord().equals("2")
+                        || this.getAntwoord().equals("3")
+                        || this.getAntwoord().equals("4")
                         || this.getAntwoord().equals("6"))) {
             System.out.println("Ik snap niet wat je bedoeld...");
             vraagNummerUitKeuzemenu();
