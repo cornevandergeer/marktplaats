@@ -45,12 +45,8 @@ public class AdvertentieInputView {
     }
 
     public String vraagBezorgwijze(Gebruiker gebruiker) {
-        if (gebruiker.getBezorgwijzes().size() == 0) {
-            return "";
-        }
         if (gebruiker.getBezorgwijzes().size() == 1) {
             return gebruiker.getBezorgwijzes().toArray()[0].toString().toUpperCase().replaceAll("\\s+","");
-
         } else {
             return kiesOptieBezorgwijze(gebruiker);
         }
