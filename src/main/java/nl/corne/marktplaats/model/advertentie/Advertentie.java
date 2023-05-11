@@ -21,6 +21,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Entity
 @Table( name = "Advertentie")
+@NamedQuery(name = "Advertentie.findAll", query = "SELECT a FROM Advertentie a")
 public class Advertentie {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,10 +4,8 @@ import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Query;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -25,7 +23,7 @@ public class AdvertentieDAO implements AdvertentieDAOInterface {
 
     @Override
     public List<Advertentie> getAll() {
-       return em.createNamedQuery("Advertentie.findAll", Advertentie.class).getResultList();
+        return em.createNamedQuery("Advertentie.findAll", Advertentie.class).getResultList();
     }
 
     @Override
