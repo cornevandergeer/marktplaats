@@ -28,12 +28,13 @@ public class Advertentie {
     private long advID;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Gebruiker mygebruiker;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Hoofdcategorie hoofdcategorie;
     private String titel;
     private BigDecimal prijs;
     @Lob
     private String omschrijving;
+    @Enumerated(EnumType.STRING)
     private Bezorgwijze bezorgwijze;
     private StatusAdvertentie status = StatusAdvertentie.BESCHIKBAAR;
 
