@@ -21,6 +21,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table( name = "Gebruiker")
+@NamedQuery(name = "Gebruiker.findAll", query = "SELECT a FROM Gebruiker a")
 public class Gebruiker {
 
     @Id

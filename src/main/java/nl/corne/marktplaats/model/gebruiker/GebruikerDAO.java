@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import lombok.extern.slf4j.Slf4j;
+import nl.corne.marktplaats.model.advertentie.Advertentie;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class GebruikerDAO implements GebruikerDAOInterface {
 
     @Override
     public List<Gebruiker> getAll(){
-        return null;
+        return em.createNamedQuery("Gebruiker.findAll", Gebruiker.class).getResultList();
     }
 
     @Override
