@@ -11,7 +11,7 @@
             <property name="jakarta.persistence.jdbc.user" value="root"/>
             <property name="jakarta.persistence.jdbc.password" value="AdminAdmin!"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
-<!--            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>-->
+            <property name="jakarta.persistence.sql-load-script-source" value="dummydata.sql"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
         </properties>
     </persistence-unit>

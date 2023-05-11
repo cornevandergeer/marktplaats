@@ -57,7 +57,7 @@ public class ConsoleController {
                         System.out.println("nog even geduld...");
                         break;
                     case "4": // advertentie maken
-                        advertentieController.maakAdvertentie();
+                        advertentieController.maakAdvertentie(gebruiker);
                         break;
                     case "6": // uitloggen
                         System.out.println("je bent nu uitgelogd...");
