@@ -22,6 +22,7 @@ import java.math.BigDecimal;
 @Entity
 @Table( name = "Advertentie")
 @NamedQuery(name = "Advertentie.findAll", query = "SELECT a FROM Advertentie a")
+@NamedQuery(name = "Advertentie.findAllSameGebruiker", query = "SELECT a FROM Advertentie a WHERE a.mygebruiker = :gebruiker")
 public class Advertentie {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

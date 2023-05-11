@@ -4,6 +4,8 @@ import jakarta.inject.Singleton;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import lombok.extern.slf4j.Slf4j;
+import nl.corne.marktplaats.model.gebruiker.Gebruiker;
+import nl.corne.marktplaats.model.reactie.Reactie;
 import nl.corne.marktplaats.model.util.EntityManagerProducer;
 
 import java.util.List;
@@ -17,6 +19,12 @@ public class AdvertentieDAO implements AdvertentieDAOInterface {
     @Override
     public Advertentie get(int id) {
         return em.find(Advertentie.class, id);
+    }
+
+    @Override
+    public List<Advertentie> getAllAdvertentieFromGebruiker(Gebruiker gebruiker) {
+        return em.createNamedQuery("Advertentie.findAllSameGebruiker", Advertentie.class).
+                setParameter("gebruiker", gebruiker).getResultList();
     }
 
     @Override
