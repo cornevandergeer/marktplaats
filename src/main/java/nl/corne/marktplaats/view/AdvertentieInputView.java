@@ -14,7 +14,12 @@ public class AdvertentieInputView {
     public String vraagHoofdcategorie() {
         System.out.println("Gaat het om een 'dienst' of een 'product'? ");
         String hoofdCategorie = scan.nextLine();
-        return hoofdCategorie;
+        if (hoofdCategorie.equals("dienst") || hoofdCategorie.equals("product")) {
+            return hoofdCategorie;
+        } else {
+            System.out.println("ik snap niet wat je bedoeld.");
+            return vraagHoofdcategorie();
+        }
     }
 
     public String vraagTitel() {
