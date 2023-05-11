@@ -15,8 +15,6 @@ public enum Bezorgwijze {
                 return description;
         }
 
-
-
         @Override
         public String toString() {
                 return description;
