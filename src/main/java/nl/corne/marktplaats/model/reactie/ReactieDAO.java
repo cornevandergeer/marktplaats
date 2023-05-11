@@ -1,37 +1,38 @@
-package nl.corne.marktplaats.model.advertentie;
+package nl.corne.marktplaats.model.reactie;
 
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import lombok.extern.slf4j.Slf4j;
+import nl.corne.marktplaats.model.advertentie.Advertentie;
 
 import java.util.List;
 
 @Slf4j
 @Singleton
-public class AdvertentieDAO implements AdvertentieDAOInterface {
+public class ReactieDAO implements ReactieDAOInterface{
 
     @Inject
     private EntityManager em;
 
     @Override
-    public Advertentie get(int id) {
-        return em.find(Advertentie.class, id);
+    public List<Reactie> getAll() {
+        return null;
+    }
+
+    public List<Reactie> getAllReactiesOfAdvertentie(Advertentie advertentie) {
+        return em.createNamedQuery("Reactie.findAll", Reactie.class).
+                setParameter("advID", advertentie).getResultList();
+
     }
 
     @Override
-    public List<Advertentie> getAll() {
-        return em.createNamedQuery("Advertentie.findAll", Advertentie.class).
-                getResultList();
-    }
-
-    @Override
-    public void insert(Advertentie advertentie) {
+    public void insert(Reactie reactie) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         try {
-            em.persist(advertentie);
+            em.persist(reactie);
             transaction.commit();
         } catch(Exception e){
             log.error("Er ging iets mis: ", e);
@@ -40,14 +41,14 @@ public class AdvertentieDAO implements AdvertentieDAOInterface {
     }
 
     @Override
-    public int update(Advertentie advertentie) {
+    public int update(Reactie reactie) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         try {
-            em.merge(advertentie);
+            em.merge(reactie);
             transaction.commit();
             return 1;
-        } catch (Exception e){
+        } catch (Exception e) {
             log.error("Er ging iets mis: ", e);
             transaction.rollback();
             return 0;
@@ -55,7 +56,9 @@ public class AdvertentieDAO implements AdvertentieDAOInterface {
     }
 
     @Override
-    public int delete(Advertentie advertentie) {
+    public int delete(Reactie reactie) {
         return 0;
     }
+
+
 }

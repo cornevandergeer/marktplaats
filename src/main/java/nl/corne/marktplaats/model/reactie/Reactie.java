@@ -1,6 +1,7 @@
 package nl.corne.marktplaats.model.reactie;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +19,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table( name = "Reactie")
+@NamedQuery(name = "Reactie.findAll", query = "SELECT r FROM Reactie r Where r.advertentie = :advID")
 public class Reactie {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,5 +29,6 @@ public class Reactie {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Advertentie advertentie;
     private Date timeStamp;
-    private String reactie;
+    @Size(max = 255, message = "Uw tekst is te lang.")
+    private String tekst;
 }
