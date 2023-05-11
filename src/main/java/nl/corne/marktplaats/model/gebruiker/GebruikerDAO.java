@@ -1,12 +1,10 @@
 package nl.corne.marktplaats.model.gebruiker;
 
-import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import lombok.extern.slf4j.Slf4j;
-import nl.corne.marktplaats.model.advertentie.Advertentie;
 import nl.corne.marktplaats.model.util.EntityManagerProducer;
 
 import java.util.List;

@@ -1,6 +1,5 @@
 package nl.corne.marktplaats.model.advertentie;
 
-import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;

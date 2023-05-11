@@ -23,7 +23,7 @@
             <AppenderRef ref="rollingFile"/>
         </Logger>-->
 
-        <Logger name="org.hibernate" level="DEBUG"/>
+        <Logger name="org.hibernate.SQL" level="DEBUG"/>
         <!--to show binding parameter log statements:-->
         <Logger name="org.hibernate.type.descriptor.sql" level="TRACE"/>
 
