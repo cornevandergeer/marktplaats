@@ -28,6 +28,7 @@ public class Advertentie {
     private int advID;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Gebruiker mygebruiker;
+    @Enumerated
     private Hoofdcategorie hoofdcategorie;
     private String titel;
     private BigDecimal prijs;

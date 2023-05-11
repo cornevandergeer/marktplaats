@@ -16,6 +16,8 @@ public class ConsoleController {
     @Inject
     GebruikerController gebruikerController;
     @Inject
+    AdvertentieController advertentieController;
+    @Inject
     GebruikerOutputView gebruikerOutputView;
 
     public void runConsole() {
@@ -50,6 +52,12 @@ public class ConsoleController {
                         break;
                     case "2": // gebruikersinfo aanpassen
                         gebruikerController.pasGebruikerInfoAan(gebruiker);
+                        break;
+                    case "3": // advertenties bekijken
+                        System.out.println("nog even geduld...");
+                        break;
+                    case "4": // advertentie maken
+                        advertentieController.maakAdvertentie();
                         break;
                     case "6": // uitloggen
                         System.out.println("je bent nu uitgelogd...");

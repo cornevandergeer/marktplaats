@@ -1,8 +1,8 @@
 package nl.corne.marktplaats.model.advertentie;
 
 public enum Hoofdcategorie {
-    DIENSTEN("Diensten"),
-    GOEDEREN("Goederen");
+    DIENST("dienst"),
+    PRODUCT("product");
 
     private final String description;
 

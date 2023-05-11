@@ -1,8 +1,6 @@
 package nl.corne.marktplaats.view;
 
-import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
-import lombok.extern.log4j.Log4j;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
@@ -11,6 +9,7 @@ import java.util.Scanner;
 public class AdvertentieInputView {
 
     Scanner scan = new Scanner(System.in);
+
     public String vraagHoofdcategorie() {
         System.out.println("Gaat het om een 'dienst' of een 'product'? ");
         String hoofdCategorie = scan.nextLine();
@@ -39,14 +38,12 @@ public class AdvertentieInputView {
         return prijsBigDecimal;
     }
 
-//    public String vraagOmschrijving() {
-//        System.out.println();
-//    }
-
-    public static void main(String[] args) {
-        AdvertentieInputView test = new AdvertentieInputView();
-        test.vraagPrijs();
+    public String vraagOmschrijving() {
+        System.out.println("Wat is de omschrijving van je advertentie?");
+        String omschrijving = scan.nextLine();
+        return omschrijving;
     }
+
 }
 
 
