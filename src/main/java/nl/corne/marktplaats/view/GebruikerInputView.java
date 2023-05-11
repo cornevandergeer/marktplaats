@@ -11,7 +11,7 @@ public class GebruikerInputView {
     Scanner scan = new Scanner(System.in);
 
     public String vraagEmail() {
-        System.out.println("Wat is je email? ");
+        System.out.println("Wat is je e-mail adres? ");
         String gebruikersNaam = scan.nextLine();
         return gebruikersNaam;
     }
