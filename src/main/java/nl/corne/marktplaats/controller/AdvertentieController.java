@@ -23,7 +23,7 @@ public class AdvertentieController {
         String titel = advertentieInputView.vraagTitel();
         BigDecimal prijs =  advertentieInputView.vraagPrijs();
         String omschrijving = advertentieInputView.vraagOmschrijving();
-        Advertentie advertentie = Advertentie.builder().hoofdcategorie(Hoofdcategorie.valueOf(hoofdcategorie)).titel(titel).prijs(prijs).omschrijving(omschrijving).build();
+        Advertentie advertentie = Advertentie.builder().hoofdcategorie(Hoofdcategorie.valueOf(hoofdcategorie.toUpperCase())).titel(titel).prijs(prijs).omschrijving(omschrijving).build();
         advertentieDAO.insert(advertentie);
 
     }
