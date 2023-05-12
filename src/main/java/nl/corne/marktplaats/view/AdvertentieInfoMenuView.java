@@ -4,7 +4,6 @@ import jakarta.inject.Inject;
 import nl.corne.marktplaats.model.advertentie.Advertentie;
 import nl.corne.marktplaats.model.advertentie.AdvertentieDAO;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,7 +19,7 @@ public class AdvertentieInfoMenuView {
         System.out.println("""
                 Wat wilt u doen?
                 --------------------------------------
-                | 1. zie advertentie nummer #        |
+                | 1. Zie advertentie nummer #        |
                 | 2. Sorteer advertenties            |
                 | 3. Terug naar hoofdmenu            |
                 --------------------------------------

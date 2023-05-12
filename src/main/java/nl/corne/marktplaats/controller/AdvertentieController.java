@@ -8,6 +8,7 @@ import nl.corne.marktplaats.model.advertentie.Hoofdcategorie;
 import nl.corne.marktplaats.model.advertentie.StatusAdvertentie;
 import nl.corne.marktplaats.model.gebruiker.Bezorgwijze;
 import nl.corne.marktplaats.model.gebruiker.Gebruiker;
+import nl.corne.marktplaats.view.AdvertentieGekozenMenuView;
 import nl.corne.marktplaats.view.AdvertentieInputView;
 import nl.corne.marktplaats.view.AdvertentieInfoMenuView;
 
@@ -23,6 +24,8 @@ public class AdvertentieController {
     private AdvertentieDAO advertentieDAO;
     @Inject
     private AdvertentieInfoMenuView advertentieInfoMenuView;
+    @Inject
+    private AdvertentieGekozenMenuView advertentieGekozenMenuView;
 
     public void maakAdvertentie(Gebruiker gebruiker) {
         String hoofdcategorie = advertentieInputView.vraagHoofdcategorie();
@@ -57,6 +60,7 @@ public class AdvertentieController {
             case "1": // Zie geselecteerde advertentie
                 int advertentieNummer = advertentieInfoMenuView.vraagAdvertentieNummer();
                 advertentieDAO.get(advertentieNummer).printAdvertentie();
+                zieGekozenAdvertentie();
                 break;
             case "2": // Sorteer de advertenties
                 System.out.println(
@@ -69,6 +73,23 @@ public class AdvertentieController {
                 );
 
 
+        }
+    }
+
+    public void zieGekozenAdvertentie(){
+        advertentieGekozenMenuView.laatKeuzeMenuZien();
+        advertentieGekozenMenuView.laatKeuzeMenuZien();
+        advertentieGekozenMenuView.vraagNummerUitKeuzeMenu();
+
+        switch (advertentieGekozenMenuView.getAntwoord()) {
+            case "1": // Plaats reactie op advertentie
+                System.out.println("Wat een mooie reactie!");
+                break;
+            case "2": // Plaats bod op advertentie
+                System.out.println("Wat een geweldig bod!");
+                break;
+            case "3": // Terug naar vorige menu
+                System.out.println("Terug naar vorige menu.");
         }
     }
 
