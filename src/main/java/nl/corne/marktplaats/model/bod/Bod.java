@@ -19,6 +19,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table( name = "Bod")
+@NamedQuery( name = "Bod.findBodAdvertentie", query = "SELECT b FROM Bod b WHERE b.advertentie = :advertentie")
 public class Bod {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

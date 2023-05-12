@@ -60,15 +60,15 @@ public class AdvertentieGekozenMenuView {
             return vraagBod(advertentie);
         }
         BigDecimal bodBigDecimal = BigDecimal.valueOf(bodDouble);
-        if (bodDAO.get(advertentie) == null){
+        if (!bodDAO.checkIfBodIsPresentForAdvertentie(advertentie)){
             return bodBigDecimal;
         }
+        if (bodBigDecimal.doubleValue() <= bodDAO.get(advertentie).getBedrag().doubleValue()){
+        System.out.println("Uw bod moet hoger zijn dan het huidige bod.");
+        return vraagBod(advertentie);
+          }
         if (bodBigDecimal.doubleValue() < 0) {
             System.out.println("Bod mag niet lager zijn dan 0");
-            return vraagBod(advertentie);
-        }
-        if (bodBigDecimal.doubleValue() <= bodDAO.get(advertentie).getBedrag().doubleValue()){
-            System.out.println("Uw bod moet hoger zijn dan het huidige bod.");
             return vraagBod(advertentie);
         }
         return bodBigDecimal;

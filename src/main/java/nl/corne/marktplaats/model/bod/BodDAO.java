@@ -25,6 +25,13 @@ public class BodDAO implements BodDAOInterface{
         return null;
     }
 
+    public boolean checkIfBodIsPresentForAdvertentie(Advertentie advertentie){
+        List<Bod> checklist = em.createNamedQuery("Bod.findBodAdvertentie", Bod.class).
+                setParameter("advertentie", advertentie).
+                getResultList();
+        return checklist.size() != 0;
+    }
+
     @Override
     public void insert(Bod bod) {
         EntityTransaction transaction = em.getTransaction();
