@@ -28,7 +28,16 @@ public class Reactie {
     private Gebruiker gebruiker;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Advertentie advertentie;
-    private Date timeStamp;
+//    @Builder.Default
+//    private Date timeStamp = new Date();
     @Size(max = 255, message = "Uw tekst is te lang.")
     private String tekst;
+
+    public String printReacties() {
+        return "" +
+                "|___________________________________________________\n" +
+                "| Gebruiker:      " + this.getGebruiker() + "\n" +
+                "| Reactie:       €" + this.getTekst() + "\n" +
+                "____________________________________________________\n";
+    }
 }

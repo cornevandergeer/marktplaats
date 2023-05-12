@@ -80,7 +80,7 @@ public class Advertentie {
 
     public String printSimpelOverzicht() {
         if (this.getBezorgwijze() == null) {
-            return"" +
+            return "" +
                     "|___________________________________________________\n" +
                     "| Advertentie ID: " + this.getAdvID() + "\n" +
                     "| Titel:          " + this.getTitel() + "\n" +
