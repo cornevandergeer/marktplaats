@@ -41,6 +41,10 @@ public class AdvertentieInputView {
             return vraagPrijs();
         }
         BigDecimal prijsBigDecimal = BigDecimal.valueOf(prijsDouble);
+        if (prijsBigDecimal.doubleValue() < 0) {
+            System.out.println("prijs mag niet lager zijn dan 0");
+            return vraagPrijs();
+        }
         return prijsBigDecimal;
     }
 
