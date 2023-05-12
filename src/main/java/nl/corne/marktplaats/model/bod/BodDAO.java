@@ -17,7 +17,10 @@ public class BodDAO implements BodDAOInterface{
 
     @Override
     public Bod get(Advertentie advertentie) {
-        return em.find(Bod.class, advertentie);
+        Bod bod = em.createNamedQuery("Bod.findBodAdvertentie", Bod.class).
+                setParameter("advertentie", advertentie).
+                getSingleResult();
+        return bod;
     }
 
     @Override

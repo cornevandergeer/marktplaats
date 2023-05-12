@@ -85,6 +85,7 @@ public class AdvertentieController {
 
     public void zieGekozenAdvertentie(Gebruiker gebruiker, Advertentie advertentie){
         advertentie.printAdvertentie();
+        //TODO bod laten zien
         advertentieGekozenMenuView.laatAlleReactiesZienVanAdvertentie(advertentie);
         advertentieGekozenMenuView.laatKeuzeMenuZien();
         advertentieGekozenMenuView.vraagNummerUitKeuzeMenu();
@@ -102,13 +103,22 @@ public class AdvertentieController {
             }
             case "2" -> { // Plaats bod op advertentie
                 BigDecimal bodbedrag = advertentieGekozenMenuView.vraagBod(advertentie);
-                Bod bod = Bod.builder().
-                        gebruiker(gebruiker).
-                        advertentie(advertentie).
-                        bedrag(bodbedrag).
-                        build();
-                bodDAO.update(bod);
-                zieGekozenAdvertentie(gebruiker, advertentie);
+                if (bodDAO.checkIfBodIsPresentForAdvertentie(advertentie)) {
+                    Bod bodOud = bodDAO.get(advertentie);
+                    bodOud.setBedrag(bodbedrag);
+                    bodOud.setGebruiker(gebruiker);
+                    bodDAO.update(bodOud);
+                    zieGekozenAdvertentie(gebruiker, advertentie);
+
+                } else {
+                    Bod bodNieuw = Bod.builder().
+                            gebruiker(gebruiker).
+                            advertentie(advertentie).
+                            bedrag(bodbedrag).
+                            build();
+                    bodDAO.update(bodNieuw);
+                    zieGekozenAdvertentie(gebruiker, advertentie);
+                }
             }
             case "3" -> // Terug naar vorige menu
                     System.out.println("Terug naar vorige menu.");

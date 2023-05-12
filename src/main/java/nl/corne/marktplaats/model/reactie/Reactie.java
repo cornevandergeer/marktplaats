@@ -11,7 +11,6 @@ import nl.corne.marktplaats.model.advertentie.Advertentie;
 import nl.corne.marktplaats.model.gebruiker.Gebruiker;
 
 import java.sql.Timestamp;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
