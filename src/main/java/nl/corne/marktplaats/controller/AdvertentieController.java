@@ -55,9 +55,8 @@ public class AdvertentieController {
 
         switch (advertentieInfoMenuView.getAntwoord()) {
             case "1": // Zie geselecteerde advertentie
-                System.out.println(
-                        "Een hele mooie advertentie."
-                );
+                int advertentieNummer = advertentieInfoMenuView.vraagAdvertentieNummer();
+                advertentieDAO.get(advertentieNummer).printAdvertentie();
                 break;
             case "2": // Sorteer de advertenties
                 System.out.println(

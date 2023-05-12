@@ -77,4 +77,46 @@ public class Advertentie {
             System.out.println("Autorisatie level is te laag om status van advertentie aan te passen.");
         }
     }
+
+    public String printSimpelOverzicht() {
+        if (this.getBezorgwijze() == null) {
+            return"" +
+                    "|___________________________________________________\n" +
+                    "| Advertentie ID: " + this.getAdvID() + "\n" +
+                    "| Titel:          " + this.getTitel() + "\n" +
+                    "| Prijs:          €" + this.getPrijs() + "\n" +
+                    "____________________________________________________\n";
+        } else {
+            return "" +
+                    "|___________________________________________________\n" +
+                    "| Advertentie ID: " + this.getAdvID() + "\n" +
+                    "| Titel:          " + this.getTitel() + "\n" +
+                    "| Prijs:          €" + this.getPrijs() + "\n" +
+                    "| Bezorgwijze:    " + this.getBezorgwijze() + "\n" +
+                    "____________________________________________________\n";
+        }
+    }
+
+    public void printAdvertentie() {
+        if (this.getBezorgwijze() == null) {
+            System.out.println("________________________________________________________________________________________________________");
+            System.out.println("| Titel:           " + this.getTitel());
+            System.out.println("| Advertentie ID:  " + this.getAdvID());
+            System.out.println("| Status:          " + this.getStatus());
+            System.out.println("| Gebruiker:       " + this.getMygebruiker().getVoornaam() + " " + this.getMygebruiker().getAchternaam());
+            System.out.println("| Prijs:           €" + this.getPrijs());
+            System.out.println("| Omschrijving:    " + this.getOmschrijving());
+            System.out.println("|_______________________________________________________________________________________________________");
+        } else {
+            System.out.println("________________________________________________________________________________________________________");
+            System.out.println("| Titel:           " + this.getTitel());
+            System.out.println("| Advertentie ID:  " + this.getAdvID());
+            System.out.println("| Status:          " + this.getStatus());
+            System.out.println("| Gebruiker:       " + this.getMygebruiker().getVoornaam() + " " + this.getMygebruiker().getAchternaam());
+            System.out.println("| Prijs:           €" + this.getPrijs());
+            System.out.println("| Omschrijving:    " + this.getOmschrijving());
+            System.out.println("| Bezorgwijze:     " + this.getBezorgwijze());
+            System.out.println("|_______________________________________________________________________________________________________");
+        }
+    }
 }

@@ -27,6 +27,7 @@ public class AdvertentieInfoMenuView {
                 """);
     }
 
+
     public void vraagNummerUitKeuzeMenu() {
         System.out.println("Typ het nummer uit het keuzemenu in:");
         setAntwoord();
@@ -38,6 +39,24 @@ public class AdvertentieInfoMenuView {
             vraagNummerUitKeuzeMenu();
         }
     }
+
+    public int vraagAdvertentieNummer() {
+        System.out.println("Typ het ID-nummer van de advertentie die je wil bekijken:");
+        setAntwoord();
+        int antw;
+        try{
+            antw = Integer.valueOf(getAntwoord());
+        } catch (NumberFormatException e) {
+            System.out.println("Voer een getal in");
+            return vraagAdvertentieNummer();
+        }
+        int aantalAdvertenties =  advertentieDAO.getAll().size();
+        if (antw > aantalAdvertenties || antw < 1) {
+            System.out.println("Deze advertentie bestaat niet");
+            return vraagAdvertentieNummer();
+        }
+        return antw;
+    }
     
     public void laatAlleAdvertentiesZien() {
         List<Advertentie> advertenties = advertentieDAO.getAllBeschikbareAdvertenties();
@@ -46,7 +65,7 @@ public class AdvertentieInfoMenuView {
                 Advertenties
                 --------------------------------------""");
         for (int i = 0; i < advertenties.toArray().length ; i++) {
-            System.out.println("| " + (i + 1) + ". " + advertenties.toArray()[i].toString());
+            System.out.println("| " + (i + 1) + ". \n" + advertenties.get(i).printSimpelOverzicht());
         }
         System.out.println("""
                 --------------------------------------
