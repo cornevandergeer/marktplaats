@@ -40,7 +40,7 @@ public class AdvertentieInfoMenuView {
     }
     
     public void laatAlleAdvertentiesZien() {
-        List<Advertentie> advertenties = advertentieDAO.getAll();
+        List<Advertentie> advertenties = advertentieDAO.getAllBeschikbareAdvertenties();
         System.out.println("""
                 
                 Advertenties

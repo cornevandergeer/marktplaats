@@ -27,6 +27,11 @@ public class AdvertentieDAO implements AdvertentieDAOInterface {
                 setParameter("gebruiker", gebruiker).getResultList();
     }
 
+    public List<Advertentie> getAllBeschikbareAdvertenties() {
+        return em.createNamedQuery("Advertentie.findAllBeschikbaar", Advertentie.class).
+                setParameter("status", StatusAdvertentie.BESCHIKBAAR).getResultList();
+    }
+
     @Override
     public List<Advertentie> getAll() {
         return em.createNamedQuery("Advertentie.findAll", Advertentie.class).
