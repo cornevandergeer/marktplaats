@@ -60,6 +60,9 @@ public class AdvertentieGekozenMenuView {
             return vraagBod(advertentie);
         }
         BigDecimal bodBigDecimal = BigDecimal.valueOf(bodDouble);
+        if (bodDAO.get(advertentie) == null){
+            return bodBigDecimal;
+        }
         if (bodBigDecimal.doubleValue() < 0) {
             System.out.println("Bod mag niet lager zijn dan 0");
             return vraagBod(advertentie);
