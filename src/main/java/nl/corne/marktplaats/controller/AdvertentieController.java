@@ -49,6 +49,7 @@ public class AdvertentieController {
         advertentieDAO.update(advertentie);
     }
     public void zieAlleAdvertenties(Gebruiker gebruiker){
+        advertentieInfoMenuView.laatAlleAdvertentiesZien();
         advertentieInfoMenuView.laatKeuzeMenuZien();
         advertentieInfoMenuView.vraagNummerUitKeuzeMenu();
 

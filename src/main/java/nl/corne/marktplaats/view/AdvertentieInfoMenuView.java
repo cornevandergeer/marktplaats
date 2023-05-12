@@ -1,8 +1,17 @@
 package nl.corne.marktplaats.view;
 
+import jakarta.inject.Inject;
+import nl.corne.marktplaats.model.advertentie.Advertentie;
+import nl.corne.marktplaats.model.advertentie.AdvertentieDAO;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AdvertentieInfoMenuView {
+
+    @Inject
+    private AdvertentieDAO advertentieDAO;
 
     static Scanner scan = new Scanner(System.in);
     private String antwoord;
@@ -29,6 +38,21 @@ public class AdvertentieInfoMenuView {
             vraagNummerUitKeuzeMenu();
         }
     }
+    
+    public void laatAlleAdvertentiesZien() {
+        List<Advertentie> advertenties = advertentieDAO.getAll();
+        System.out.println("""
+                
+                Advertenties
+                --------------------------------------""");
+        for (int i = 0; i < advertenties.toArray().length ; i++) {
+            System.out.println("| " + (i + 1) + ". " + advertenties.toArray()[i].toString());
+        }
+        System.out.println("""
+                --------------------------------------
+                """);
+    }
+    
     private void setAntwoord() {
         this.antwoord = scan.nextLine();
     }

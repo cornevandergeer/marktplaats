@@ -11,4 +11,4 @@ insert into Advertentie values (1, 'THUISAFHALEN', 'PRODUCT','een mooie fiets om
 insert into Advertentie values (2, null, 'DIENST','ik bied mezelf aan als DM voor D&D.', 75.99, 'BESCHIKBAAR', 'GM voor D&D', 2);
 insert into Advertentie values (3, 'VERSTUREN', 'PRODUCT','echte sneeuw van de noordpool.', 99.34, 'BESCHIKBAAR', 'sneeuw', 2);
 insert into Advertentie values (4, null, 'DIENST','ik bied privé lesjes aan voor je OCP, nu voor een vriendenprijsje.', 500.00, 'BESCHIKBAAR', 'privé-les OCP', 3);
-insert into Advertentie values (5, 'MAGAZIJNDEPOT', 'PRODUCT','Hij doet het nog prima, APK tot 16 mei 2023', 50.00, 'BESCHIKBAAR', 'prima auto', 3);
+insert into Advertentie values (5, 'MAGAZIJNBELASTINGDIENST', 'PRODUCT','Hij doet het nog prima, APK tot 16 mei 2023', 50.00, 'BESCHIKBAAR', 'prima auto', 3);
