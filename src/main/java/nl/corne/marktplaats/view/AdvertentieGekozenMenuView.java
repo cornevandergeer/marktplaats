@@ -2,9 +2,11 @@ package nl.corne.marktplaats.view;
 
 import jakarta.inject.Inject;
 import nl.corne.marktplaats.model.advertentie.Advertentie;
+import nl.corne.marktplaats.model.bod.BodDAO;
 import nl.corne.marktplaats.model.reactie.Reactie;
 import nl.corne.marktplaats.model.reactie.ReactieDAO;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,6 +14,8 @@ public class AdvertentieGekozenMenuView {
 
     @Inject
     private ReactieDAO reactieDAO;
+    @Inject
+    private BodDAO bodDAO;
 
     static Scanner scan = new Scanner(System.in);
     private String antwoord;
@@ -42,6 +46,29 @@ public class AdvertentieGekozenMenuView {
     public String vraagTekst(){
         System.out.println("Plaats uw reactie voor deze advertentie.");
         return scan.nextLine();
+    }
+
+    public BigDecimal vraagBod(Advertentie advertentie){
+        System.out.println("Plaats uw bod.");
+        String bod = scan.nextLine();
+        bod = bod.replaceAll(",",".");
+        Double bodDouble;
+        try {
+            bodDouble = Double.parseDouble(bod);
+        } catch (NumberFormatException e) {
+            System.out.println("Bod moet een getal zijn");
+            return vraagBod(advertentie);
+        }
+        BigDecimal bodBigDecimal = BigDecimal.valueOf(bodDouble);
+        if (bodBigDecimal.doubleValue() < 0) {
+            System.out.println("Bod mag niet lager zijn dan 0");
+            return vraagBod(advertentie);
+        }
+        if (bodBigDecimal.doubleValue() <= bodDAO.get(advertentie).getBedrag().doubleValue()){
+            System.out.println("Uw bod moet hoger zijn dan het huidige bod.");
+            return vraagBod(advertentie);
+        }
+        return bodBigDecimal;
     }
 
     public void laatAlleReactiesZienVanAdvertentie(Advertentie advertentie) {

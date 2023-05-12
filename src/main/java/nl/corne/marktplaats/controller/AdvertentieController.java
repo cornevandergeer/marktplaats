@@ -96,8 +96,10 @@ public class AdvertentieController {
                 reactieDAO.update(reactie);
                 zieGekozenAdvertentie(gebruiker, advertentie);
             }
-            case "2" -> // Plaats bod op advertentie
-                    System.out.println("Wat een geweldig bod!");
+            case "2" -> { // Plaats bod op advertentie
+                BigDecimal bod = advertentieGekozenMenuView.vraagBod();
+                zieGekozenAdvertentie(gebruiker, advertentie);
+            }
             case "3" -> // Terug naar vorige menu
                     System.out.println("Terug naar vorige menu.");
         }
