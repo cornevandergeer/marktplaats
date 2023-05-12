@@ -74,6 +74,26 @@ public class AdvertentieGekozenMenuView {
         return bodBigDecimal;
     }
 
+    public void laatBodZienVanAdvertentie(Advertentie advertentie) {
+        if (bodDAO.checkIfBodIsPresentForAdvertentie(advertentie)){
+            System.out.println("""
+                    
+                    |Huidig bod
+                    |-------------------------------------
+                    |Bedrag: €""" + bodDAO.get(advertentie).getBedrag() + """
+                    
+                    |-------------------------------------"""
+                    );
+        } else {
+            System.out.println("""
+                    
+                    --------------------------------------
+                    Nog geen bod geplaatst.
+                    --------------------------------------
+                    """);
+        }
+    }
+
     public void laatAlleReactiesZienVanAdvertentie(Advertentie advertentie) {
         List<Reactie> reacties = reactieDAO.getAllReactiesOfAdvertentie(advertentie);
         System.out.println("""

@@ -85,7 +85,7 @@ public class AdvertentieController {
 
     public void zieGekozenAdvertentie(Gebruiker gebruiker, Advertentie advertentie){
         advertentie.printAdvertentie();
-        //TODO bod laten zien
+        advertentieGekozenMenuView.laatBodZienVanAdvertentie(advertentie);
         advertentieGekozenMenuView.laatAlleReactiesZienVanAdvertentie(advertentie);
         advertentieGekozenMenuView.laatKeuzeMenuZien();
         advertentieGekozenMenuView.vraagNummerUitKeuzeMenu();

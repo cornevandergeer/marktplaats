@@ -48,6 +48,6 @@ public class Reactie {
                 "| Gebruikersnaam:     " + this.getGebruiker().getUsername() + "\n" +
                 "| Datum:              " + this.formattedTimestamp() + "\n" +
                 "| Reactie:            " + this.getTekst() + "\n" +
-                "|___________________________________________________________________\n";
+                "|__________________________________________________________________\n";
     }
 }
