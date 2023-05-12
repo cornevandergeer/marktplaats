@@ -54,7 +54,7 @@ public class ConsoleController {
                         gebruikerController.pasGebruikerInfoAan(gebruiker);
                         break;
                     case "3": // advertenties bekijken
-                        System.out.println("nog even geduld...");
+                        advertentieController.zieAlleAdvertenties(gebruiker);
                         break;
                     case "4": // advertentie maken
                         advertentieController.maakAdvertentie(gebruiker);

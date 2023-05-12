@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 @Singleton
 public class GebruikerInfoMenuView {
+
     static Scanner scan = new Scanner(System.in);
     private String antwoord;
 

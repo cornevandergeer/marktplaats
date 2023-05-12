@@ -9,6 +9,7 @@ import nl.corne.marktplaats.model.advertentie.StatusAdvertentie;
 import nl.corne.marktplaats.model.gebruiker.Bezorgwijze;
 import nl.corne.marktplaats.model.gebruiker.Gebruiker;
 import nl.corne.marktplaats.view.AdvertentieInputView;
+import nl.corne.marktplaats.view.AdvertentieOutputView;
 
 import java.math.BigDecimal;
 
@@ -20,6 +21,8 @@ public class AdvertentieController {
     private AdvertentieInputView advertentieInputView;
     @Inject
     private AdvertentieDAO advertentieDAO;
+    @Inject
+    private AdvertentieOutputView advertentieOutputView;
 
     public void maakAdvertentie(Gebruiker gebruiker) {
         String hoofdcategorie = advertentieInputView.vraagHoofdcategorie();
@@ -45,4 +48,28 @@ public class AdvertentieController {
                 build();
         advertentieDAO.update(advertentie);
     }
+    public void zieAlleAdvertenties(Gebruiker gebruiker){
+        advertentieOutputView.laatKeuzeMenuZien();
+        advertentieOutputView.vraagNummerUitKeuzeMenu();
+
+        switch (advertentieOutputView.getAntwoord()) {
+            case "1": // Zie geselecteerde advertentie
+                System.out.println(
+                        "Een hele mooie advertentie."
+                );
+                break;
+            case "2": // Sorteer de advertenties
+                System.out.println(
+                        "Een mooi gesorteerde lijst van advertenties."
+                );
+                break;
+            case "3": // Terug naar hoofdmenu
+                System.out.println(
+                        "Terug naar hoofdmenu."
+                );
+
+
+        }
+    }
+
 }
