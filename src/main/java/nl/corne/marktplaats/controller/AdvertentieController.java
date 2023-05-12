@@ -97,7 +97,7 @@ public class AdvertentieController {
                 zieGekozenAdvertentie(gebruiker, advertentie);
             }
             case "2" -> { // Plaats bod op advertentie
-                BigDecimal bod = advertentieGekozenMenuView.vraagBod();
+                BigDecimal bod = advertentieGekozenMenuView.vraagBod(advertentie);
                 zieGekozenAdvertentie(gebruiker, advertentie);
             }
             case "3" -> // Terug naar vorige menu
