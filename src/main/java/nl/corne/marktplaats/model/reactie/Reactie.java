@@ -10,6 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 import nl.corne.marktplaats.model.advertentie.Advertentie;
 import nl.corne.marktplaats.model.gebruiker.Gebruiker;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Slf4j
@@ -28,16 +31,24 @@ public class Reactie {
     private Gebruiker gebruiker;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Advertentie advertentie;
-//    @Builder.Default
-//    private Date timeStamp = new Date();
+    @Builder.Default
+    private Date timeStamp = new Date();
     @Size(max = 255, message = "Uw tekst is te lang.")
     private String tekst;
 
+
+    public String formattedTimestamp()  {
+        Timestamp ts = new Timestamp(timeStamp.getTime());
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return formatter.format(ts);
+    }
+
     public String printReacties() {
         return "" +
-                "|___________________________________________________\n" +
-                "| Gebruiker:      " + this.getGebruiker() + "\n" +
-                "| Reactie:       €" + this.getTekst() + "\n" +
-                "____________________________________________________\n";
+                "|__________________________________________________________________\n" +
+                "| Gebruikersnaam:     " + this.getGebruiker().getUsername() + "\n" +
+                "| Datum:              " + this.formattedTimestamp() + "\n" +
+                "| Reactie:            " + this.getTekst() + "\n" +
+                "|___________________________________________________________________\n";
     }
 }

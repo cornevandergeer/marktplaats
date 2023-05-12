@@ -51,7 +51,7 @@ public class AdvertentieGekozenMenuView {
                 Reacties
                 --------------------------------------""");
         for (int i = 0; i < reacties.toArray().length ; i++) {
-            System.out.println("| " + (i + 1) + ". \\n" + reacties.get(i).printReacties());
+            System.out.println("| " + (i + 1) + ". \n" + reacties.get(i).printReacties());
         }
         System.out.println("""
                 --------------------------------------

@@ -63,7 +63,6 @@ public class AdvertentieController {
         switch (advertentieInfoMenuView.getAntwoord()) {
             case "1": // Zie geselecteerde advertentie
                 int advertentieNummer = advertentieInfoMenuView.vraagAdvertentieNummer();
-                Advertentie ad = advertentieDAO.get(advertentieNummer);
                 zieGekozenAdvertentie(gebruiker, advertentieDAO.get(advertentieNummer));
                 break;
             case "2": // Sorteer de advertenties
@@ -81,10 +80,10 @@ public class AdvertentieController {
     }
 
     public void zieGekozenAdvertentie(Gebruiker gebruiker, Advertentie advertentie){
-        advertentieGekozenMenuView.laatKeuzeMenuZien();
-        advertentieGekozenMenuView.vraagNummerUitKeuzeMenu();
         advertentie.printAdvertentie();
         advertentieGekozenMenuView.laatAlleReactiesZienVanAdvertentie(advertentie);
+        advertentieGekozenMenuView.laatKeuzeMenuZien();
+        advertentieGekozenMenuView.vraagNummerUitKeuzeMenu();
 
         switch (advertentieGekozenMenuView.getAntwoord()) {
             case "1" -> { // Plaats reactie op advertentie
@@ -94,7 +93,7 @@ public class AdvertentieController {
                         advertentie(advertentie).
                         tekst(tekst).
                         build();
-                reactieDAO.insert(reactie);
+                reactieDAO.update(reactie);
                 zieGekozenAdvertentie(gebruiker, advertentie);
             }
             case "2" -> // Plaats bod op advertentie
