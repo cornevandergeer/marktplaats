@@ -6,6 +6,8 @@ import nl.corne.marktplaats.model.advertentie.Advertentie;
 import nl.corne.marktplaats.model.advertentie.AdvertentieDAO;
 import nl.corne.marktplaats.model.advertentie.Hoofdcategorie;
 import nl.corne.marktplaats.model.advertentie.StatusAdvertentie;
+import nl.corne.marktplaats.model.bod.Bod;
+import nl.corne.marktplaats.model.bod.BodDAO;
 import nl.corne.marktplaats.model.gebruiker.Bezorgwijze;
 import nl.corne.marktplaats.model.gebruiker.Gebruiker;
 import nl.corne.marktplaats.model.reactie.Reactie;
@@ -30,6 +32,8 @@ public class AdvertentieController {
     private AdvertentieGekozenMenuView advertentieGekozenMenuView;
     @Inject
     private ReactieDAO reactieDAO;
+    @Inject
+    private BodDAO bodDAO;
 
     public void maakAdvertentie(Gebruiker gebruiker) {
         String hoofdcategorie = advertentieInputView.vraagHoofdcategorie();
@@ -97,7 +101,13 @@ public class AdvertentieController {
                 zieGekozenAdvertentie(gebruiker, advertentie);
             }
             case "2" -> { // Plaats bod op advertentie
-                BigDecimal bod = advertentieGekozenMenuView.vraagBod(advertentie);
+                BigDecimal bodbedrag = advertentieGekozenMenuView.vraagBod(advertentie);
+                Bod bod = Bod.builder().
+                        gebruiker(gebruiker).
+                        advertentie(advertentie).
+                        bedrag(bodbedrag).
+                        build();
+                bodDAO.update(bod);
                 zieGekozenAdvertentie(gebruiker, advertentie);
             }
             case "3" -> // Terug naar vorige menu
