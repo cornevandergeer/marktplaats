@@ -101,16 +101,16 @@ public class GebruikerDAO implements GebruikerDAOInterface {
         }
     }
 
-    public Gebruiker selectGebruikerByNaam(String voornaam) {
+    public Gebruiker getGebruikerById(long id) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         String query = """
                     select g
                     from Gebruiker g
-                    where voornaam = :n
+                    where id = :id
                     """;
         Gebruiker gebruiker = em.createQuery(query, Gebruiker.class).
-                setParameter("n", voornaam).
+                setParameter("id", id).
                 getSingleResult();
         transaction.commit();
         return gebruiker;

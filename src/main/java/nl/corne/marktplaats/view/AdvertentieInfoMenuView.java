@@ -17,10 +17,10 @@ public class AdvertentieInfoMenuView {
 
     public void laatKeuzeMenuZien(){
         System.out.println("""
-                Wat wilt u doen?
+                Wat wil je doen?
                 --------------------------------------
-                | 1. Zie advertentie nummer #        |
-                | 2. Sorteer advertenties            |
+                | 1. Selecteer een advertentie       |
+                | 2. Sorteer advertenties op prijs   |
                 | 3. Terug naar hoofdmenu            |
                 --------------------------------------
                 """);
@@ -40,7 +40,7 @@ public class AdvertentieInfoMenuView {
     }
 
     public int vraagAdvertentieNummer() {
-        System.out.println("Typ het ID-nummer van de advertentie die je wil bekijken:");
+        System.out.println("Typ het ID-nummer van de advertentie in:");
         setAntwoord();
         int antw;
         try{

@@ -3,6 +3,8 @@ package nl.corne.marktplaats.view;
 import jakarta.inject.Inject;
 import nl.corne.marktplaats.model.advertentie.Advertentie;
 import nl.corne.marktplaats.model.bod.BodDAO;
+import nl.corne.marktplaats.model.gebruiker.Gebruiker;
+import nl.corne.marktplaats.model.gebruiker.GebruikerDAO;
 import nl.corne.marktplaats.model.reactie.Reactie;
 import nl.corne.marktplaats.model.reactie.ReactieDAO;
 
@@ -16,13 +18,15 @@ public class AdvertentieGekozenMenuView {
     private ReactieDAO reactieDAO;
     @Inject
     private BodDAO bodDAO;
+    @Inject
+    private GebruikerDAO gebruikerDAO;
 
     static Scanner scan = new Scanner(System.in);
     private String antwoord;
 
     public void laatKeuzeMenuZien(){
         System.out.println("""
-                Wat wilt u doen?
+                Wat wil je doen?
                 --------------------------------------
                 | 1. Plaats reactie                  |
                 | 2. Plaats bod                      |
@@ -44,12 +48,12 @@ public class AdvertentieGekozenMenuView {
     }
 
     public String vraagTekst(){
-        System.out.println("Plaats uw reactie voor deze advertentie.");
+        System.out.println("Plaats je reactie voor deze advertentie.");
         return scan.nextLine();
     }
 
     public BigDecimal vraagBod(Advertentie advertentie){
-        System.out.println("Plaats uw bod.");
+        System.out.println("Wat is jouw bod?");
         String bod = scan.nextLine();
         bod = bod.replaceAll(",",".");
         Double bodDouble;
@@ -64,7 +68,7 @@ public class AdvertentieGekozenMenuView {
             return bodBigDecimal;
         }
         if (bodBigDecimal.doubleValue() <= bodDAO.get(advertentie).getBedrag().doubleValue()){
-        System.out.println("Uw bod moet hoger zijn dan het huidige bod.");
+        System.out.println("Bod moet hoger zijn dan het huidige bod.");
         return vraagBod(advertentie);
           }
         if (bodBigDecimal.doubleValue() < 0) {
@@ -76,14 +80,15 @@ public class AdvertentieGekozenMenuView {
 
     public void laatBodZienVanAdvertentie(Advertentie advertentie) {
         if (bodDAO.checkIfBodIsPresentForAdvertentie(advertentie)){
-            System.out.println("""
-                    
-                    |Huidig bod
-                    |-------------------------------------
-                    |Bedrag: €""" + bodDAO.get(advertentie).getBedrag() + """
-                    
-                    |-------------------------------------"""
-                    );
+            Gebruiker biedendeGebruiker = bodDAO.get(advertentie).getGebruiker();
+            System.out.println(
+                            "|Huidig bod \n" +
+                            "|___________________________________________________\n" +
+                            "| Bedrag:    €" + bodDAO.get(advertentie).getBedrag()+"\n" +
+                            "| Bieder:    "  + biedendeGebruiker.getUsername() + "\n" +
+                            "| Datum bod: " + bodDAO.get(advertentie).formattedTimestamp() + "\n" +
+                            "|____________________________________________________"
+    );
         } else {
             System.out.println("""
                     

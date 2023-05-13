@@ -10,6 +10,8 @@ import nl.corne.marktplaats.model.advertentie.Advertentie;
 import nl.corne.marktplaats.model.gebruiker.Gebruiker;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Slf4j
@@ -28,7 +30,15 @@ public class Bod {
     private Gebruiker gebruiker;
     @OneToOne
     private Advertentie advertentie;
+    @Builder.Default
+    private Date timeStamp = new Date();
     private BigDecimal bedrag;
     private boolean geaccepteerdBod;
+
+    public String formattedTimestamp()  {
+        Timestamp ts = new Timestamp(timeStamp.getTime());
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return formatter.format(ts);
+    }
 
 }
