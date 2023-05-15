@@ -13,7 +13,7 @@ import java.util.List;
 @Singleton
 public class GebruikerDAO implements GebruikerDAOInterface {
 
-    private final EntityManager em = EntityManagerProducer.emf.createEntityManager();
+    private EntityManager em = EntityManagerProducer.emf.createEntityManager();
 
     @Override
     public Gebruiker get(String username){

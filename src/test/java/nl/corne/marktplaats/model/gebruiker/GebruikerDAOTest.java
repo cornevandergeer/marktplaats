@@ -36,24 +36,6 @@ class GebruikerDAOTest {
         verify(tMock).commit();
     }
 
-//    @Test
-//    void whenInsertIsCalledATransactionIsBegunAndPersistIsCalledAndCommitted() {
-//        // given
-//        when(emMock.getTransaction()).thenReturn(tMock);
-//        doNothing().when(tMock).begin();
-//        doNothing().when(tMock).commit();
-//
-//        // when
-//        target.insert(new Gebruiker());
-//
-//        // then
-//        verify(emMock).persist(isA(Gebruiker.class));
-//
-//        verify(emMock, atLeastOnce()).getTransaction();
-//        verify(tMock).begin();
-//        verify(tMock).commit();
-//    }
-
     @Test
     void get() {
     }
