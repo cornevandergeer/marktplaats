@@ -1,4 +1,4 @@
-package nl.corne.marktplaats.model.gebruiker;
+package nl.corne.marktplaats.model.util;
 
 import jakarta.enterprise.inject.Alternative;
 import jakarta.enterprise.inject.Produces;
