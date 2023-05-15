@@ -36,7 +36,7 @@ public class Gebruiker {
     private String achternaam;
     private String woonplaats;
     private String favorieteProgrammeertaal;
-    @ElementCollection @Builder.Default @CollectionTable(name = "Gebruiker Bezorgwijzes") @Enumerated(EnumType.STRING) //@ManyToMany(cascade = CascadeType.PERSIST) // @ToString.Exclude
+    @ElementCollection @Builder.Default @CollectionTable(name = "Gebruiker Bezorgwijzes") @Enumerated(EnumType.STRING)
     private Set<Bezorgwijze> bezorgwijzes = new HashSet<>();
     @OneToMany @Builder.Default @CollectionTable(name = "Gebruiker Favoriete Advertenties")
     private Set<Advertentie> myFavorieteAdvertenties = new HashSet<>();

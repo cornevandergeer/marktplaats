@@ -4,6 +4,7 @@ import jakarta.inject.Singleton;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
+import jakarta.persistence.TypedQuery;
 import lombok.extern.slf4j.Slf4j;
 import nl.corne.marktplaats.model.util.EntityManagerProducer;
 
@@ -22,7 +23,8 @@ public class GebruikerDAO implements GebruikerDAOInterface {
 
     @Override
     public List<Gebruiker> getAll(){
-        return em.createNamedQuery("Gebruiker.findAll", Gebruiker.class).getResultList();
+        TypedQuery<Gebruiker> namedQuery = em.createNamedQuery("Gebruiker.findAll", Gebruiker.class);
+        return namedQuery.getResultList();
     }
 
     @Override
