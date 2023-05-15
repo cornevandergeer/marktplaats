@@ -6,7 +6,7 @@ import nl.corne.marktplaats.model.gebruiker.Gebruiker;
 import java.util.List;
 
 public interface AdvertentieDAOInterface extends DAOInterface<Advertentie> {
-    Advertentie get(int id);
+    Advertentie get(long id);
 
     List<Advertentie> getAllAdvertentieFromGebruiker(Gebruiker gebruiker);
 }

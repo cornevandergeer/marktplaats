@@ -6,6 +6,7 @@ import jakarta.inject.Singleton;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 
+
 @Singleton
 @Alternative // CDI: neem deze class als hij als alternatief is geactiveerd in beans.xml
 public class EntityManagerProducerAlt {

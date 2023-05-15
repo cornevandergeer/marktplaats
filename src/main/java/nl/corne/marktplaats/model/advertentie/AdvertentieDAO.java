@@ -14,10 +14,10 @@ import java.util.List;
 @Singleton
 public class AdvertentieDAO implements AdvertentieDAOInterface {
 
-    private final EntityManager em = EntityManagerProducer.emf.createEntityManager();
+    private EntityManager em = EntityManagerProducer.emf.createEntityManager();
 
     @Override
-    public Advertentie get(int id) {
+    public Advertentie get(long id) {
         return em.find(Advertentie.class, id);
     }
 

@@ -13,7 +13,7 @@ import java.util.List;
 @Singleton
 public class BodDAO implements BodDAOInterface{
 
-    private final EntityManager em = EntityManagerProducer.emf.createEntityManager();
+    private EntityManager em = EntityManagerProducer.emf.createEntityManager();
 
     @Override
     public Bod get(Advertentie advertentie) {
