@@ -1,5 +1,5 @@
 insert into Gebruiker values (1, 'van der Geer', 'Java', false, 'HANDELAAR','cornevandergeer@gmail.com','Corne','12345','Apeldoorn');
-insert into Gebruiker values (2, 'Crombach', 'Java', false, 'HANDELAAR','leoncrombach@gmail.com','Leon','12345','Deventer');
+insert into Gebruiker values (2, 'Crombach', 'Java', false, 'HANDELAAR','leon_crombach@hotmail.com','Leon','12345','Deventer');
 insert into Gebruiker values (3, 'Janssens', 'Kotlin', false, 'HANDELAAR','bramjanssens@gmail.com','Bram','42','Utrecht');
 insert into `Gebruiker Bezorgwijzes` values (1, 'THUISAFHALEN');
 insert into `Gebruiker Bezorgwijzes` values (2, 'THUISAFHALEN');
