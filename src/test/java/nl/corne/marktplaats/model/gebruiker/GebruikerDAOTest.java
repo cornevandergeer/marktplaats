@@ -81,7 +81,7 @@ class GebruikerDAOTest {
         doNothing().when(tMock).begin();
         doNothing().when(tMock).rollback();
 
-        doThrow(new EntityExistsException("Fake news, fake error. It all is a hoax.")).
+        doThrow(new EntityExistsException("Fake news, fake error. It is all a hoax.")).
                 when(emMock).
                 persist(any(Gebruiker.class));
 
@@ -95,7 +95,7 @@ class GebruikerDAOTest {
 
 
     @Test
-    void update() {
+    void whenUpdateWithValidGebruikerThenTransactionIsCommitted() {
         when(emMock.getTransaction()).thenReturn(tMock);
         doNothing().when(tMock).begin();
 
