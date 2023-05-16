@@ -4,8 +4,6 @@ import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
-import org.apache.commons.compress.utils.Lists;
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -98,6 +96,14 @@ class GebruikerDAOTest {
 
     @Test
     void update() {
+        when(emMock.getTransaction()).thenReturn(tMock);
+        doNothing().when(tMock).begin();
+
+        target.update(new Gebruiker());
+
+        verify(tMock).begin();
+        verify(emMock).merge(any(Gebruiker.class));
+        verify(tMock).commit();
     }
 
     @Test
