@@ -20,8 +20,7 @@ public class AdvertentieInfoMenuView {
                 Wat wil je doen?
                 --------------------------------------
                 | 1. Selecteer een advertentie       |
-                | 2. Sorteer advertenties op prijs   |
-                | 3. Terug naar hoofdmenu            |
+                | 2. Terug naar hoofdmenu            |
                 --------------------------------------
                 """);
     }
@@ -32,8 +31,7 @@ public class AdvertentieInfoMenuView {
         setAntwoord();
         if (
                 !(this.getAntwoord().equals("1")
-                        || this.getAntwoord().equals("2")
-                        || this.getAntwoord().equals("3"))) {
+                        || this.getAntwoord().equals("2"))) {
             System.out.println("Ik snap niet wat je bedoeld...");
             vraagNummerUitKeuzeMenu();
         }

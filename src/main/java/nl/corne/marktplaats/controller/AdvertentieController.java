@@ -69,12 +69,7 @@ public class AdvertentieController {
                 int advertentieNummer = advertentieInfoMenuView.vraagAdvertentieNummer();
                 zieGekozenAdvertentie(gebruiker, advertentieDAO.get(advertentieNummer));
                 break;
-            case "2": // Sorteer de advertenties
-                System.out.println(
-                        "Een mooi gesorteerde lijst van advertenties."
-                );
-                break;
-            case "3": // Terug naar hoofdmenu
+            case "2": // Terug naar hoofdmenu
                 System.out.println(
                         "Terug naar hoofdmenu."
                 );
